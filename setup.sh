@@ -27,6 +27,13 @@ echo " ------------ END ------------"
 # source .bashrc
 
 #
+# Git
+#
+echo " ------------ Git ------------"
+brew install git
+git --version
+echo " ------------ END ------------"
+#
 # Ruby
 #
 
