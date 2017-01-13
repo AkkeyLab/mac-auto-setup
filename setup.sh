@@ -33,9 +33,25 @@ echo " ------------ Git ------------"
 brew install git
 git --version
 echo " ------------ END ------------"
+
 #
 # Ruby
 #
+echo " ----------- Ruby ------------"
+brew install openssl
+brew install readline
+brew install rbenv
+brew install rbenv-gemset
+rbenv --version
+cd ~/
+echo 'eval "$(rbenv init -)"' >> .zshrc.local
+source ~/.zshrc
+rbenv install -l
+rbenv install 2.3.3
+rbenv rehash
+rbenv global 2.3.3
+ruby -v
+echo " ------------ END ------------"
 
 #
 # Use old plugin for Xcode8
