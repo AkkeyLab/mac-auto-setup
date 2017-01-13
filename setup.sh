@@ -7,11 +7,37 @@ echo " Because speed is important."
 echo ""
 
 #
+# Install git
+#
+echo " ------------ Git ------------"
+brew install git
+git --version
+echo " ------------ END ------------"
+
+#
 # Install homebrew.
 #
 echo " --------- Homebrew ----------"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew upgrade --all
+brew doctor
 brew -v
+echo " ------------ END ------------"
+
+#
+# Install zsh
+#
+echo " ------------ zsh ------------"
+brew install zsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting colordiff
+# mkdir ~/Downloads/tmp
+# cd ~/Downloads/tmp
+# git clone https://github.com/zplug/zplug.git .zplug
+cd ~/
+git clone https://github.com/seebi/zshrc.git
+cd ~/zshrc/
+make install
+source ~/.zshrc
 echo " ------------ END ------------"
 
 #
@@ -27,15 +53,7 @@ echo " ------------ END ------------"
 # source .bashrc
 
 #
-# Git
-#
-echo " ------------ Git ------------"
-brew install git
-git --version
-echo " ------------ END ------------"
-
-#
-# Ruby
+# Install ruby
 #
 echo " ----------- Ruby ------------"
 brew install openssl
@@ -136,7 +154,7 @@ line
 echo " ------------ END ------------"
 
 #
-# 'wget' setup
+# Install wget
 #
 echo " ----------- wget ------------"
 brew install wget
@@ -155,3 +173,7 @@ echo " -----------------------------"
 echo " セキュリティ対策ツール"
 echo " Please download it manually from the web site and set it up."
 echo " ------------ END ------------"
+
+echo " システム環境設定＞ユーザとグループ＞key off"
+echo " 副クリック(Control+クリック)＞詳細オプション"
+echo " ログインシェル＞/bin/bashー＞/usr/local/bin/zsh"
