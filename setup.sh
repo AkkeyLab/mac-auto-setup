@@ -174,6 +174,5 @@ echo " セキュリティ対策ツール"
 echo " Please download it manually from the web site and set it up."
 echo " ------------ END ------------"
 
-echo " システム環境設定＞ユーザとグループ＞key off"
-echo " 副クリック(Control+クリック)＞詳細オプション"
-echo " ログインシェル＞/bin/bashー＞/usr/local/bin/zsh"
+echo " System Preferences -> Users & Groups -> [User Name] -> Advanced Options.."
+echo " Login shell <- /usr/local/bin/zsh"
