@@ -39,6 +39,7 @@ cd ~/zshrc/
 make install
 source ~/.zshrc
 echo '/usr/local/bin/zsh' >> /etc/shells
+# chsh
 echo " ------------ END ------------"
 
 #
