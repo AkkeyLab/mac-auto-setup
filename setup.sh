@@ -38,6 +38,7 @@ git clone https://github.com/seebi/zshrc.git
 cd ~/zshrc/
 make install
 source ~/.zshrc
+echo '/usr/local/bin/zsh' >> /etc/shells
 echo " ------------ END ------------"
 
 #
@@ -173,6 +174,3 @@ echo " -----------------------------"
 echo " セキュリティ対策ツール"
 echo " Please download it manually from the web site and set it up."
 echo " ------------ END ------------"
-
-echo " System Preferences -> Users & Groups -> [User Name] -> Advanced Options.."
-echo " Login shell <- /usr/local/bin/zsh"
