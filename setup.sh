@@ -33,10 +33,11 @@ brew install zsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting col
 # mkdir ~/Downloads/tmp
 # cd ~/Downloads/tmp
 # git clone https://github.com/zplug/zplug.git .zplug
-cd ~/
+cd ~
 git clone https://github.com/seebi/zshrc.git
 cd ~/zshrc/
 make install
+cd ~
 source ~/.zshrc
 echo '/usr/local/bin/zsh' >> /etc/shells
 # chsh
@@ -46,7 +47,9 @@ echo " ------------ END ------------"
 # Old version option and fix setting
 #
 # brew install caskroom/cask/brew-cask
-echo 'export HOMEBREW_CASK_OPTS="--appdir=/Applications"' >> .zshrc.local
+cd ~/zshrc/
+echo 'export HOMEBREW_CASK_OPTS="--appdir=/Applications"' >> private.zsh
+cd ~
 source ~/.zshrc
 
 #
@@ -92,9 +95,10 @@ echo " ----------- Ruby ------------"
 brew install rbenv
 brew install ruby-build
 rbenv --version
-cd ~/
-echo 'export PATH="$HOME/.rbenv/bin:$PATH" '>> .zshrc.local
-echo 'eval "$(rbenv init - zsh)"' >> .zshrc.local
+cd ~/zshrc/
+echo 'export PATH="$HOME/.rbenv/bin:$PATH" '>> private.zsh
+echo 'eval "$(rbenv init - zsh)"' >> private.zsh
+cd ~
 source ~/.zshrc
 rbenv install -l
 rbenv install 2.4.0
@@ -165,24 +169,6 @@ brew cask install fritzing
 brew cask install mysqlworkbench
 # brew cask install neo4j-community-edition # No ruby file
 # brew cask install winx-hd-video-converter-for-mac # No ruby file
-echo " ------------ END ------------"
-
-#
-# App store
-#
-echo " ---- Install store apps -----"
-Cinch
-CotEditor
-Desktop Calendar Plus
-KeiSignal
-Microsoft Remote Desktop
-PicGIF Lite
-Pocket
-SystemPal
-The Unarchiver
-Xcode
-イメージオプティム
-line
 echo " ------------ END ------------"
 
 #
