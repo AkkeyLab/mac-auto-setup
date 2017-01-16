@@ -67,6 +67,7 @@ brew install mas
 #
 # Mac App Store apps install
 #
+echo " ---- Mac App Store apps -----"
 mas install 497799835  # Xcode (8.2.1)
 mas install 1144071713 # KeiSignal (1.0.3)
 mas install 844918735  # PicGIF Lite (2.0.8)
@@ -82,6 +83,7 @@ mas install 453164367  # SystemPal (5.2)
 mas install 539883307  # LINE (4.11.1)
 mas install 412529613  # Cinch (1.2.2)
 mas install 409203825  # Numbers (3.6.2)
+echo " ------------ END ------------"
 
 #
 # Install ruby
