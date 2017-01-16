@@ -7,14 +7,6 @@ echo " Because speed is important."
 echo ""
 
 #
-# Install git
-#
-echo " ------------ Git ------------"
-brew install git
-git --version
-echo " ------------ END ------------"
-
-#
 # Install homebrew.
 #
 echo " --------- Homebrew ----------"
@@ -23,6 +15,14 @@ brew update
 brew upgrade --all
 brew doctor
 brew -v
+echo " ------------ END ------------"
+
+#
+# Install git
+#
+echo " ------------ Git ------------"
+brew install git
+git --version
 echo " ------------ END ------------"
 
 #
@@ -43,9 +43,11 @@ echo '/usr/local/bin/zsh' >> /etc/shells
 echo " ------------ END ------------"
 
 #
-# Old version option.
+# Old version option and fix setting
 #
 # brew install caskroom/cask/brew-cask
+echo 'export HOMEBREW_CASK_OPTS="--appdir=/Applications"' >> .zshrc.local
+source ~/.zshrc
 
 #
 # Load setting files.
@@ -58,18 +60,17 @@ echo " ------------ END ------------"
 # Install ruby
 #
 echo " ----------- Ruby ------------"
-brew install openssl
-brew install readline
 brew install rbenv
-brew install rbenv-gemset
+brew install ruby-build
 rbenv --version
 cd ~/
-echo 'eval "$(rbenv init -)"' >> .zshrc.local
+echo 'export PATH="$HOME/.rbenv/bin:$PATH" '>> .zshrc.local
+echo 'eval "$(rbenv init - zsh)"' >> .zshrc.local
 source ~/.zshrc
 rbenv install -l
-rbenv install 2.3.3
+rbenv install 2.4.0
+rbenv global 2.4.0
 rbenv rehash
-rbenv global 2.3.3
 ruby -v
 echo " ------------ END ------------"
 
