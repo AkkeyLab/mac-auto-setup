@@ -53,16 +53,19 @@ cd ~
 source ~/.zshrc
 
 #
-# Mac App Store install setting
+# Homebrew apps install
 #
+# Mac App Store install setting
 brew install mas
+# TeX sub app (TeX custom install)
+# brew install ghostscript
 
 #
-# Load setting files.
+# Load private setting.
 #
-# cp .bashrc ~/.bashrc
-# cd ~
-# source .bashrc
+cd ~/zshrc/
+# Haw to used : swift --version
+echo 'alias swift='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift'' >> private.zsh
 
 # ----------------------------------
 # ----------------------------------
@@ -169,6 +172,18 @@ brew cask install fritzing
 brew cask install mysqlworkbench
 # brew cask install neo4j-community-edition # No ruby file
 # brew cask install winx-hd-video-converter-for-mac # No ruby file
+echo " ------------ END ------------"
+
+#
+# TeX settings
+#
+echo " ------------ TeX ------------"
+sudo tlmgr update --self --all
+# JPN Lang settings
+cd /usr/local/texlive/2016/texmf-dist/scripts/cjk-gs-integrate
+sudo perl cjk-gs-integrate.pl --link-texmf --force
+sudo mktexlsr
+sudo kanji-config-updmap-sys hiragino-elcapitan-pron
 echo " ------------ END ------------"
 
 #
