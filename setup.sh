@@ -38,9 +38,10 @@ git clone https://github.com/seebi/zshrc.git
 cd ~/zshrc/
 make install
 cd ~
-source ~/.zshrc
+which -a zsh
 echo '/usr/local/bin/zsh' >> /etc/shells
-# chsh
+chsh -s /usr/local/bin/zsh
+source ~/.zshrc
 echo " ------------ END ------------"
 
 #
