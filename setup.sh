@@ -45,6 +45,27 @@ source ~/.zshrc
 echo " ------------ END ------------"
 
 #
+# Powerline
+#
+echo " --------- Powerline ---------"
+echo "\ue0b0 \u00b1 \ue0a0 \u27a6 \u2718 \u26a1 \u2699"
+cd ~/
+git clone https://github.com/powerline/fonts.git
+cd fonts
+./install.sh
+echo "\ue0b0 \u00b1 \ue0a0 \u27a6 \u2718 \u26a1 \u2699"
+cd ~/
+git clone https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git
+cd oh-my-zsh-powerline-theme
+./install_in_omz.sh
+echo 'export ZSH=$HOME/.oh-my-zsh' >> private.zsh
+echo 'ZSH_THEME="agnoster"' >> private.zsh
+echo 'plugins=(brew brew-cask ruby osx bundler rails)' >> private.zsh
+echo 'source $ZSH/oh-my-zsh.sh' >> private.zsh
+source ~/.zshrc
+echo " ------------ END ------------"
+
+#
 # Old version option and fix setting
 #
 # brew install caskroom/cask/brew-cask
