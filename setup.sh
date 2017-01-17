@@ -35,11 +35,10 @@ brew install zsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting col
 # git clone https://github.com/zplug/zplug.git .zplug
 cd ~
 git clone https://github.com/seebi/zshrc.git
-cd ~/zshrc/
+cd ~/zshrc
 make install
-cd ~
 which -a zsh
-echo '/usr/local/bin/zsh' >> /etc/shells
+sudo -- sh -c 'echo '/usr/local/bin/zsh' >> /etc/shells'
 chsh -s /usr/local/bin/zsh
 source ~/.zshrc
 echo " ------------ END ------------"
@@ -48,20 +47,15 @@ echo " ------------ END ------------"
 # Powerline
 #
 echo " --------- Powerline ---------"
-echo "\ue0b0 \u00b1 \ue0a0 \u27a6 \u2718 \u26a1 \u2699"
 cd ~/
 git clone https://github.com/powerline/fonts.git
-cd fonts
-./install.sh
-echo "\ue0b0 \u00b1 \ue0a0 \u27a6 \u2718 \u26a1 \u2699"
-cd ~/
+fonts/install.sh
 git clone https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git
-cd oh-my-zsh-powerline-theme
-./install_in_omz.sh
-echo 'export ZSH=$HOME/.oh-my-zsh' >> private.zsh
-echo 'ZSH_THEME="agnoster"' >> private.zsh
-echo 'plugins=(brew brew-cask ruby osx bundler rails)' >> private.zsh
-echo 'source $ZSH/oh-my-zsh.sh' >> private.zsh
+oh-my-zsh-powerline-theme/install_in_omz.sh
+echo 'export ZSH=$HOME/.oh-my-zsh' >> ~/zshrc/private.zsh
+echo 'ZSH_THEME="agnoster"' >> ~/zshrc/private.zsh
+echo 'plugins=(brew brew-cask ruby osx bundler rails)' >> ~/zshrc/private.zsh
+echo 'source $ZSH/oh-my-zsh.sh' >> ~/zshrc/private.zsh
 source ~/.zshrc
 echo " ------------ END ------------"
 
@@ -69,9 +63,7 @@ echo " ------------ END ------------"
 # Old version option and fix setting
 #
 # brew install caskroom/cask/brew-cask
-cd ~/zshrc/
-echo 'export HOMEBREW_CASK_OPTS="--appdir=/Applications"' >> private.zsh
-cd ~
+echo 'export HOMEBREW_CASK_OPTS="--appdir=/Applications"' >> ~/zshrc/private.zsh
 source ~/.zshrc
 
 #
@@ -85,9 +77,8 @@ brew install mas
 #
 # Load private setting.
 #
-cd ~/zshrc/
 # Haw to used : swift --version
-echo 'alias swift='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift'' >> private.zsh
+echo 'alias swift='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift'' >> ~/zshrc/private.zsh
 
 # ----------------------------------
 # ----------------------------------
@@ -120,10 +111,8 @@ echo " ----------- Ruby ------------"
 brew install rbenv
 brew install ruby-build
 rbenv --version
-cd ~/zshrc/
-echo 'export PATH="$HOME/.rbenv/bin:$PATH" '>> private.zsh
-echo 'eval "$(rbenv init - zsh)"' >> private.zsh
-cd ~
+echo 'export PATH="$HOME/.rbenv/bin:$PATH" '>> ~/zshrc/private.zsh
+echo 'eval "$(rbenv init - zsh)"' >> ~/zshrc/private.zsh
 source ~/.zshrc
 rbenv install -l
 rbenv install 2.4.0
