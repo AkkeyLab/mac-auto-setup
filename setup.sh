@@ -219,6 +219,21 @@ wget --version
 echo " ------------ END ------------"
 
 #
+# CocoaPods
+#
+echo " --------- CocoaPods ---------"
+sudo gem install -n /usr/local/bin cocoapods --pre
+pod setup
+echo " ------------ END ------------"
+
+#
+# Carthage
+#
+echo " --------- Carthage ----------"
+brew install carthage
+echo " ------------ END ------------"
+
+#
 # Self install apps
 #
 echo " ----- Self install apps -----"
