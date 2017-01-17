@@ -43,29 +43,10 @@ source ~/.zshrc
 echo " ------------ END ------------"
 
 #
-# Powerline
+# Load private setting.
 #
-echo " --------- Powerline ---------"
-brew install python
-python --version
-pip --version
-pip install powerline-status==2.4
-echo 'powerline-daemon -q' >> ~/zshrc/private.zsh
-echo '. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh' >> ~/zshrc/private.zsh
-git clone https://github.com/powerline/fonts.git ~/fonts
-fonts/install.sh
-# git clone https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git
-# oh-my-zsh-powerline-theme/install_in_omz.sh
-# echo 'export ZSH=$HOME/.oh-my-zsh' >> ~/zshrc/private.zsh
-# echo 'ZSH_THEME="agnoster"' >> ~/zshrc/private.zsh
-# echo 'plugins=(brew brew-cask ruby osx bundler rails)' >> ~/zshrc/private.zsh
-# echo 'source $ZSH/oh-my-zsh.sh' >> ~/zshrc/private.zsh
-source ~/.zshrc
-echo " ------------ END ------------"
-
-#
-# Old version option and fix setting
-#
+# Haw to used : swift --version
+echo 'alias swift='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift'' >> ~/zshrc/private.zsh
 # brew install caskroom/cask/brew-cask
 echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/zshrc/private.zsh
 echo 'export HOMEBREW_CASK_OPTS="--appdir=/Applications"' >> ~/zshrc/private.zsh
@@ -78,18 +59,39 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 source ~/.vimrc
 
 #
+# Powerline
+#
+echo " --------- Powerline ---------"
+brew install python
+python --version
+pip --version
+pip install powerline-status==2.4
+echo 'powerline-daemon -q' >> ~/zshrc/private.zsh
+echo '. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh' >> ~/zshrc/private.zsh
+source ~/.zshrc
+git clone https://github.com/powerline/fonts.git ~/fonts
+fonts/install.sh
+# git clone https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git
+# oh-my-zsh-powerline-theme/install_in_omz.sh
+# echo 'export ZSH=$HOME/.oh-my-zsh' >> ~/zshrc/private.zsh
+# echo 'ZSH_THEME="agnoster"' >> ~/zshrc/private.zsh
+# echo 'plugins=(brew brew-cask ruby osx bundler rails)' >> ~/zshrc/private.zsh
+# echo 'source $ZSH/oh-my-zsh.sh' >> ~/zshrc/private.zsh
+echo 'python from powerline.vim import setup as powerline_setup' >> ~/.vimrc
+echo 'python powerline_setup()' >> ~/.vimrc
+echo 'python del powerline_setup' >> ~/.vimrc
+source ~/.vimrc
+mkdir ~/.config/powerline
+cp -R ~/.local/lib/python2.7/site-packages/powerline/config_files/* ~/.config/powerline/ 
+echo " ------------ END ------------"
+
+#
 # Homebrew apps install
 #
 # Mac App Store install setting
 brew install mas
 # TeX sub app (TeX custom install)
 # brew install ghostscript
-
-#
-# Load private setting.
-#
-# Haw to used : swift --version
-echo 'alias swift='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift'' >> ~/zshrc/private.zsh
 
 # ----------------------------------
 # ----------------------------------
