@@ -82,7 +82,7 @@ echo 'python powerline_setup()' >> ~/.vimrc
 echo 'python del powerline_setup' >> ~/.vimrc
 source ~/.vimrc
 mkdir ~/.config/powerline
-cp -R ~/.local/lib/python2.7/site-packages/powerline/config_files/* ~/.config/powerline/ 
+cp -R ~/.local/lib/python2.7/site-packages/powerline/config_files/* ~/.config/powerline/
 echo " ------------ END ------------"
 
 #
@@ -158,7 +158,7 @@ brew cask install cyberduck
 brew cask install docker
 brew cask install dropbox
 brew cask install duet
-brew cask install eclipse-installer
+brew cask install eclipse-ide
 brew cask install firefox
 # brew cask install funter # No ruby file
 brew cask install genymotion
