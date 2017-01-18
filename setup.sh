@@ -43,6 +43,18 @@ source ~/.zshrc
 echo " ------------ END ------------"
 
 #
+# Install vim
+#
+echo " ------------ Vim ------------"
+brew install vim --with-override-system-vi
+echo 'export PATH=/usr/local/bin:/usr/bin' >> ~/zshrc/private.zsh
+git clone https://github.com/amix/vimrc.git ~/.vim_runtime
+sh ~/.vim_runtime/install_awesome_vimrc.sh
+source ~/.zshrc
+source ~/.vimrc
+echo " ------------ END ------------"
+
+#
 # Load private setting.
 #
 # Haw to used : swift --version
@@ -52,11 +64,8 @@ echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/zshrc/private.zsh
 echo 'export HOMEBREW_CASK_OPTS="--appdir=/Applications"' >> ~/zshrc/private.zsh
 echo 'export LANG=ja_JP.UTF-8' >> ~/zshrc/private.zsh
 echo 'fpath=(/usr/local/share/zsh-completions $fpath)' >> ~/zshrc/private.zsh
-echo 'setopt print_eight_bit'
+echo 'setopt print_eight_bit' >> ~/zshrc/private.zsh
 source ~/.zshrc
-git clone https://github.com/amix/vimrc.git ~/.vim_runtime
-sh ~/.vim_runtime/install_awesome_vimrc.sh
-source ~/.vimrc
 
 #
 # Powerline
