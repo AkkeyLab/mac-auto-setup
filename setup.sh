@@ -30,9 +30,6 @@ echo " ------------ END ------------"
 #
 echo " ------------ zsh ------------"
 brew install zsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting colordiff
-# mkdir ~/Downloads/tmp
-# cd ~/Downloads/tmp
-# git clone https://github.com/zplug/zplug.git .zplug
 git clone https://github.com/seebi/zshrc.git ~/zshrc
 cd ~/zshrc
 make install
@@ -71,29 +68,17 @@ source ~/.zshrc
 # Powerline
 #
 echo " --------- Powerline ---------"
-# brew install python
-# python --version
-# pip --version
-# pip install powerline-status==2.4
-# echo 'powerline-daemon -q' >> ~/zshrc/private.zsh
-# echo '. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh' >> ~/zshrc/private.zsh
+# Font is 14pt Iconsolata for Powerline with Solarized Dark iterm2 colors.
 git clone https://github.com/bhilburn/powerlevel9k.git ~/powerlevel9k
-$ echo 'source  ~/powerlevel9k/powerlevel9k.zsh-theme' >> ~/zshrc/private.zsh
+echo 'source  ~/powerlevel9k/powerlevel9k.zsh-theme' >> ~/zshrc/private.zsh
+echo 'POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time context dir vcs)' >> ~/zshrc/private.zsh
+echo 'POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status rbenv)' >> ~/zshrc/private.zsh
+echo 'POWERLEVEL9K_STATUS_VERBOSE=false' >> ~/zshrc/private.zsh
+echo 'POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"' >> ~/zshrc/private.zsh
+echo 'POWERLEVEL9K_SHORTEN_DIR_LENGTH=3' >> ~/zshrc/private.zsh
 source ~/.zshrc
 git clone https://github.com/powerline/fonts.git ~/fonts
 ~/fonts/install.sh
-# git clone https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git
-# oh-my-zsh-powerline-theme/install_in_omz.sh
-# echo 'export ZSH=$HOME/.oh-my-zsh' >> ~/zshrc/private.zsh
-# echo 'ZSH_THEME="agnoster"' >> ~/zshrc/private.zsh
-# echo 'plugins=(brew brew-cask ruby osx bundler rails)' >> ~/zshrc/private.zsh
-# echo 'source $ZSH/oh-my-zsh.sh' >> ~/zshrc/private.zsh
-echo 'python from powerline.vim import setup as powerline_setup' >> ~/.vimrc
-echo 'python powerline_setup()' >> ~/.vimrc
-echo 'python del powerline_setup' >> ~/.vimrc
-source ~/.vimrc
-mkdir ~/.config/powerline
-cp -R ~/.local/lib/python2.7/site-packages/powerline/config_files/* ~/.config/powerline/
 echo " ------------ END ------------"
 
 #
