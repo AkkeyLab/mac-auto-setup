@@ -71,15 +71,17 @@ source ~/.zshrc
 # Powerline
 #
 echo " --------- Powerline ---------"
-brew install python
-python --version
-pip --version
-pip install powerline-status==2.4
-echo 'powerline-daemon -q' >> ~/zshrc/private.zsh
-echo '. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh' >> ~/zshrc/private.zsh
+# brew install python
+# python --version
+# pip --version
+# pip install powerline-status==2.4
+# echo 'powerline-daemon -q' >> ~/zshrc/private.zsh
+# echo '. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh' >> ~/zshrc/private.zsh
+git clone https://github.com/bhilburn/powerlevel9k.git ~/powerlevel9k
+$ echo 'source  ~/powerlevel9k/powerlevel9k.zsh-theme' >> ~/zshrc/private.zsh
 source ~/.zshrc
 git clone https://github.com/powerline/fonts.git ~/fonts
-fonts/install.sh
+~/fonts/install.sh
 # git clone https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git
 # oh-my-zsh-powerline-theme/install_in_omz.sh
 # echo 'export ZSH=$HOME/.oh-my-zsh' >> ~/zshrc/private.zsh
