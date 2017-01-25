@@ -46,9 +46,7 @@ echo " ------------ END ------------"
 echo " ------------ Vim ------------"
 brew install vim --with-override-system-vi
 # echo 'export PATH=/usr/local/bin:$PATH' >> ~/zshrc/private.zsh
-git clone https://github.com/amix/vimrc.git ~/.vim_runtime
-sh ~/.vim_runtime/install_awesome_vimrc.sh
-source ~/.zshrc
+sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
 source ~/.vimrc
 echo " ------------ END ------------"
 
