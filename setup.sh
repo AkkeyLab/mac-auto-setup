@@ -36,6 +36,7 @@ make install
 which -a zsh
 sudo -- sh -c 'echo '/usr/local/bin/zsh' >> /etc/shells'
 chsh -s /usr/local/bin/zsh
+cp ~/mac-auto-setup/settings/zsh/private.zsh ~/zshrc/private.zsh
 source ~/.zshrc
 echo " ------------ END ------------"
 
@@ -44,7 +45,7 @@ echo " ------------ END ------------"
 #
 echo " ------------ Vim ------------"
 brew install vim --with-override-system-vi
-echo 'export PATH=/usr/local/bin:$PATH' >> ~/zshrc/private.zsh
+# echo 'export PATH=/usr/local/bin:$PATH' >> ~/zshrc/private.zsh
 git clone https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
 source ~/.zshrc
@@ -55,13 +56,13 @@ echo " ------------ END ------------"
 # Load private setting.
 #
 # Haw to used : swift --version
-echo 'alias swift='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift'' >> ~/zshrc/private.zsh
+# echo 'alias swift='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift'' >> ~/zshrc/private.zsh
 # brew install caskroom/cask/brew-cask
-echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/zshrc/private.zsh
-echo 'export HOMEBREW_CASK_OPTS="--appdir=/Applications"' >> ~/zshrc/private.zsh
-echo 'export LANG=ja_JP.UTF-8' >> ~/zshrc/private.zsh
-echo 'fpath=(/usr/local/share/zsh-completions $fpath)' >> ~/zshrc/private.zsh
-echo 'setopt print_eight_bit' >> ~/zshrc/private.zsh
+# echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/zshrc/private.zsh
+# echo 'export HOMEBREW_CASK_OPTS="--appdir=/Applications"' >> ~/zshrc/private.zsh
+# echo 'export LANG=ja_JP.UTF-8' >> ~/zshrc/private.zsh
+# echo 'fpath=(/usr/local/share/zsh-completions $fpath)' >> ~/zshrc/private.zsh
+# echo 'setopt print_eight_bit' >> ~/zshrc/private.zsh
 source ~/.zshrc
 
 #
@@ -70,12 +71,12 @@ source ~/.zshrc
 echo " --------- Powerline ---------"
 # Font is 14pt Iconsolata for Powerline with Solarized Dark iterm2 colors.
 git clone https://github.com/bhilburn/powerlevel9k.git ~/powerlevel9k
-echo 'source  ~/powerlevel9k/powerlevel9k.zsh-theme' >> ~/zshrc/private.zsh
-echo 'POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time context dir vcs)' >> ~/zshrc/private.zsh
-echo 'POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status rbenv)' >> ~/zshrc/private.zsh
-echo 'POWERLEVEL9K_STATUS_VERBOSE=false' >> ~/zshrc/private.zsh
-echo 'POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"' >> ~/zshrc/private.zsh
-echo 'POWERLEVEL9K_SHORTEN_DIR_LENGTH=3' >> ~/zshrc/private.zsh
+# echo 'source  ~/powerlevel9k/powerlevel9k.zsh-theme' >> ~/zshrc/private.zsh
+# echo 'POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time context dir vcs)' >> ~/zshrc/private.zsh
+# echo 'POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status rbenv)' >> ~/zshrc/private.zsh
+# echo 'POWERLEVEL9K_STATUS_VERBOSE=false' >> ~/zshrc/private.zsh
+# echo 'POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"' >> ~/zshrc/private.zsh
+# echo 'POWERLEVEL9K_SHORTEN_DIR_LENGTH=3' >> ~/zshrc/private.zsh
 source ~/.zshrc
 git clone https://github.com/powerline/fonts.git ~/fonts
 ~/fonts/install.sh
@@ -120,8 +121,8 @@ echo " ----------- Ruby ------------"
 brew install rbenv
 brew install ruby-build
 rbenv --version
-echo 'export PATH="$HOME/.rbenv/bin:$PATH" '>> ~/zshrc/private.zsh
-echo 'eval "$(rbenv init - zsh)"' >> ~/zshrc/private.zsh
+# echo 'export PATH="$HOME/.rbenv/bin:$PATH" '>> ~/zshrc/private.zsh
+# echo 'eval "$(rbenv init - zsh)"' >> ~/zshrc/private.zsh
 source ~/.zshrc
 rbenv install -l
 rbenv install 2.4.0
