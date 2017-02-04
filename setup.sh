@@ -38,14 +38,9 @@ echo " ------------ END ------------"
 #
 echo " ------------ zsh ------------"
 brew install zsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting colordiff
-git clone https://github.com/seebi/zshrc.git ~/zshrc
-cd ~/zshrc
-make install
 which -a zsh
 sudo -- sh -c 'echo '/usr/local/bin/zsh' >> /etc/shells'
 chsh -s /usr/local/bin/zsh
-cp ~/mac-auto-setup/settings/zsh/private.zsh ~/zshrc/private.zsh
-source ~/.zshrc
 echo " ------------ END ------------"
 
 #
@@ -60,6 +55,8 @@ echo " ------------ END ------------"
 #
 echo " ---------- dotfiles ---------"
 sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
+cp ~/mac-auto-setup/settings/zsh/private.zsh ~/.yadr/zsh/private.zsh
+source ~/.zshrc
 echo " ------------ END ------------"
 
 #
@@ -79,9 +76,6 @@ echo " ----------- Ruby ------------"
 brew install rbenv
 brew install ruby-build
 rbenv --version
-# echo 'export PATH="$HOME/.rbenv/bin:$PATH" '>> ~/zshrc/private.zsh
-# echo 'eval "$(rbenv init - zsh)"' >> ~/zshrc/private.zsh
-source ~/.zshrc
 rbenv install -l
 rbenv install 2.4.0
 rbenv global 2.4.0
