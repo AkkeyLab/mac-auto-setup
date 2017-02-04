@@ -51,15 +51,6 @@ brew install vim --with-override-system-vi
 echo " ------------ END ------------"
 
 #
-# Install dotfiles system
-#
-echo " ---------- dotfiles ---------"
-sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
-cp ~/mac-auto-setup/settings/zsh/private.zsh ~/.yadr/zsh/private.zsh
-source ~/.zshrc
-echo " ------------ END ------------"
-
-#
 # Powerline
 #
 echo " --------- Powerline ---------"
@@ -81,6 +72,15 @@ rbenv install 2.4.0
 rbenv global 2.4.0
 rbenv rehash
 ruby -v
+echo " ------------ END ------------"
+
+#
+# Install dotfiles system
+#
+echo " ---------- dotfiles ---------"
+sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
+cp ~/mac-auto-setup/settings/zsh/private.zsh ~/.yadr/zsh/private.zsh
+source ~/.zshrc
 echo " ------------ END ------------"
 
 #
