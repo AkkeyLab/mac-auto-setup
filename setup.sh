@@ -96,6 +96,7 @@ echo " ------------ END ------------"
 # TeX settings
 #
 echo " ------------ TeX ------------"
+brew cask install mactex
 sudo tlmgr update --self --all
 # JPN Lang settings
 cd /usr/local/texlive/2016/texmf-dist/scripts/cjk-gs-integrate

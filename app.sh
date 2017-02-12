@@ -35,7 +35,6 @@ brew cask install slack
 brew cask install sourcetree
 brew cask install sublime-text
 brew cask install teamviewer
-brew cask install mactex
 brew cask install virtualbox
 brew cask install virtualbox-extension-pack
 brew cask install vlc
