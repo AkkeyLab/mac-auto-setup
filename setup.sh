@@ -9,14 +9,6 @@ cat << EOS
 EOS
 
 #
-# Mac App Store apps install
-#
-echo " ---- Mac App Store apps -----"
-brew install mas
-mas install 497799835  # Xcode (8.2.1)
-echo " ------------ END ------------"
-
-#
 # Install homebrew.
 #
 echo " --------- Homebrew ----------"
@@ -25,6 +17,14 @@ brew update
 brew upgrade --all
 brew doctor
 brew -v
+echo " ------------ END ------------"
+
+#
+# Mac App Store apps install
+#
+echo " ---- Mac App Store apps -----"
+brew install mas
+mas install 497799835  # Xcode (8.2.1)
 echo " ------------ END ------------"
 
 #
