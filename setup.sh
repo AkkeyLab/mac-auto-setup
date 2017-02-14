@@ -1,10 +1,12 @@
 #!/bin/sh
-echo ""
-echo " AkkeyLab"
-echo ""
-echo " The elapsed time doesn't matter."
-echo " Because speed is important."
-echo ""
+cat << EOS
+
+ AkkeyLab
+
+ The elapsed time doesn't matter.
+ Because speed is important.
+
+EOS
 
 #
 # Mac App Store apps install
