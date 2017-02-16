@@ -1,10 +1,12 @@
-#!/bin/sh
-echo ""
-echo " AkkeyLab"
-echo ""
-echo " The elapsed time doesn't matter."
-echo " Because speed is important."
-echo ""
+#!/bin/bash
+cat << EOS
+
+ AkkeyLab
+
+ The elapsed time does not matter.
+ Because speed is important.
+
+EOS
 
 #
 # Install web apps.

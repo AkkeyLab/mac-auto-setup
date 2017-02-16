@@ -3,7 +3,7 @@ cat << EOS
 
  AkkeyLab
 
- The elapsed time doesn't matter.
+ The elapsed time does not matter.
  Because speed is important.
 
 EOS
