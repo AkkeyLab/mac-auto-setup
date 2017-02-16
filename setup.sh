@@ -1,18 +1,12 @@
-#!/bin/sh
-echo ""
-echo " AkkeyLab"
-echo ""
-echo " The elapsed time doesn't matter."
-echo " Because speed is important."
-echo ""
+#!/bin/bash
+cat << EOS
 
-#
-# Mac App Store apps install
-#
-echo " ---- Mac App Store apps -----"
-brew install mas
-mas install 497799835  # Xcode (8.2.1)
-echo " ------------ END ------------"
+ AkkeyLab
+
+ The elapsed time does not matter.
+ Because speed is important.
+
+EOS
 
 #
 # Install homebrew.
@@ -23,6 +17,14 @@ brew update
 brew upgrade --all
 brew doctor
 brew -v
+echo " ------------ END ------------"
+
+#
+# Mac App Store apps install
+#
+echo " ---- Mac App Store apps -----"
+brew install mas
+mas install 497799835  # Xcode (8.2.1)
 echo " ------------ END ------------"
 
 #
