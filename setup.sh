@@ -107,6 +107,7 @@ cd /usr/local/texlive/2016/texmf-dist/scripts/cjk-gs-integrate
 sudo perl cjk-gs-integrate.pl --link-texmf --force
 sudo mktexlsr
 sudo kanji-config-updmap-sys hiragino-elcapitan-pron
+# Select ==> TeXShop > Preferences > Source > pTeX (ptex2pdf)
 echo " ------------ END ------------"
 
 #
