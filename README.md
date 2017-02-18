@@ -32,3 +32,4 @@ Install App Store apps:
 |SSH|`~/.ssh/config`<br>`~/.ssh/[Key file]`|-|
 |VMware Horizon View Client|`~/Library/Preferences/com.vmware.horizon.plist`|-|
 |Xcode|`Preference > Fonts & Colors > Dusk`<br>`Preference > Accounts import *.developerprofile`|-|
+|Slack|`~/Library/Containers/com.tinyspeck.slackmacgap/Data/Library/Application Support/Slack/storage/*`|-|
