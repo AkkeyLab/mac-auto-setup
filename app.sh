@@ -54,10 +54,23 @@ echo " ------------ END ------------"
 #
 # Install web apps for optional.
 #
-echo " ---- Install option apps ----"
-brew cask install 4k-video-downloader
-brew cask install fritzing
-brew cask install mysqlworkbench
-# brew cask install neo4j-community-edition # No ruby file
-# brew cask install winx-hd-video-converter-for-mac # No ruby file
-echo " ------------ END ------------"
+while true; do
+  read -p 'Install option apps ? [Y/n]' Answer
+  case $Answer in
+    '' | [Yy]* )
+      echo " ---- Install option apps ----"
+      brew cask install 4k-video-downloader
+      brew cask install fritzing
+      brew cask install mysqlworkbench
+      echo " ------------ END ------------"
+      break;
+      ;;
+    [Nn]* )
+      echo " ------------ END ------------"
+      break;
+      ;;
+    * )
+      echo Please answer YES or NO.
+  esac
+done;
+
