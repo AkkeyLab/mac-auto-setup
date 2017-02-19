@@ -86,15 +86,6 @@ source ~/.zshrc
 echo " ------------ END ------------"
 
 #
-# Use old plugin for Xcode8
-#
-echo " --- update_xcode_plugins ----"
-gem install update_xcode_plugins
-update_xcode_plugins
-update_xcode_plugins --unsign
-echo " ------------ END ------------"
-
-#
 # TeX settings
 #
 echo " ------------ TeX ------------"
