@@ -12,6 +12,7 @@ EOS
 # Mac App Store apps install
 #
 echo " ---- Mac App Store apps -----"
+brew install mas
 mas install 1144071713 # KeiSignal (1.0.3)
 mas install 844918735  # PicGIF Lite (2.0.8)
 mas install 409183694  # Keynote (6.6.2)
