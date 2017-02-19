@@ -14,6 +14,7 @@ EOS
 echo " ----- Install web apps ------"
 brew cask install 1password
 brew cask install android-file-transfer
+brew cask install java
 brew cask install android-studio
 brew cask install arduino
 brew cask install astropad
