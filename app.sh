@@ -25,11 +25,9 @@ brew cask install dropbox
 brew cask install duet
 brew cask install eclipse-ide
 brew cask install firefox
-# brew cask install funter # No ruby file
 brew cask install genymotion
 brew cask install google-chrome
 brew cask install iterm2
-# brew cask install octave # No ruby file
 brew cask install onyx
 brew cask install processing
 brew cask install skype
