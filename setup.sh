@@ -86,6 +86,19 @@ source ~/.zshrc
 echo " ------------ END ------------"
 
 #
+# install Node.js env
+#
+echo " ---------- Node.js ----------"
+curl -L git.io/nodebrew | perl - setup
+nodebrew ls-remote
+nodebrew install-binary v7.0.0
+nodebrew ls
+nodebrew use v7.0.0
+node -v
+npm -v
+echo " ------------ END ------------"
+
+#
 # TeX settings
 #
 echo " ------------ TeX ------------"

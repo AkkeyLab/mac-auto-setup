@@ -3,6 +3,7 @@ export PATH=/usr/local/sbin:$PATH
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export LANG=ja_JP.UTF-8
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 setopt print_eight_bit
 source  ~/powerlevel9k/powerlevel9k.zsh-theme
