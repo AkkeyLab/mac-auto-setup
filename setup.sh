@@ -86,7 +86,7 @@ source ~/.zshrc
 echo " ------------ END ------------"
 
 #
-# install Node.js env
+# Install Node.js env
 #
 echo " ---------- Node.js ----------"
 curl -L git.io/nodebrew | perl - setup
@@ -96,6 +96,13 @@ nodebrew ls
 nodebrew use v7.0.0
 node -v
 npm -v
+echo " ------------ END ------------"
+
+#
+# Install Yarn
+#
+echo " ----------- Yarn ------------"
+brew install yarn
 echo " ------------ END ------------"
 
 #
