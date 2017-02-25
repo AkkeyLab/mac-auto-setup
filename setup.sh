@@ -156,3 +156,35 @@ echo " -----------------------------"
 echo " セキュリティ対策ツール"
 echo " Please download it manually from the web site and set it up."
 echo " ------------ END ------------"
+
+while true; do
+  read -p 'Now install web apps? [Y/n]' Answer
+  case $Answer in
+    '' | [Yy]* )
+      ~/mac-auto-setup/app.sh
+      break;
+      ;;
+    [Nn]* )
+      echo "Skip install"
+      break;
+      ;;
+    * )
+      echo Please answer YES or NO.
+  esac
+done;
+
+while true; do
+  read -p 'Now install App Store apps? [Y/n]' Answer
+  case $Answer in
+    '' | [Yy]* )
+      ~/mac-auto-setup/appstore.sh
+      break;
+      ;;
+    [Nn]* )
+      echo "Skip install"
+      break;
+      ;;
+    * )
+      echo Please answer YES or NO.
+  esac
+done;
