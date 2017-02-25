@@ -172,3 +172,19 @@ while true; do
       echo Please answer YES or NO.
   esac
 done;
+
+while true; do
+  read -p 'Now install App Store apps? [Y/n]' Answer
+  case $Answer in
+    '' | [Yy]* )
+      ~/mac-auto-setup/appstore.sh
+      break;
+      ;;
+    [Nn]* )
+      echo "Skip install"
+      break;
+      ;;
+    * )
+      echo Please answer YES or NO.
+  esac
+done;
