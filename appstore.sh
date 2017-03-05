@@ -27,4 +27,5 @@ mas install 453164367  # SystemPal (5.2)
 mas install 539883307  # LINE (4.11.1)
 mas install 412529613  # Cinch (1.2.2)
 mas install 409203825  # Numbers (3.6.2)
+mas install 1054607607 # Helium (2.0)
 echo " ------------ END ------------"
