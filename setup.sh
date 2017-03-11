@@ -150,7 +150,7 @@ echo " ------------ END ------------"
 echo " ----- Self install apps -----"
 cd ~/Downloads
 echo " CLIP STUDIO PAINT"
-wget https://www.clip-studio.com/clip_site/download/clipstudiopaint/system/dl?f=lib/clipstudio/paint/data/163/CSP_163m_app.pkg
+wget https://www.clip-studio.com/clip_site/download/clipstudiopaint/system/dl?f=lib/clipstudio/paint/data/164/CSP_164m_app.pkg
 echo " Please manually install the application from the download directory."
 echo " -----------------------------"
 echo " セキュリティ対策ツール"
