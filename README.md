@@ -10,15 +10,15 @@ git clone https://github.com/AkkeyLab/mac-auto-setup.git ~/
 ## Installation
 To get started please run:
 ```
-~/mac-auto-setup/setup.sh
+./setup.sh
 ```
 Install GUI apps:
 ```
-~/mac-auto-setup/app.sh
+./app.sh
 ```
 Install App Store apps:
 ```
-~/mac-auto-setup/appstore.sh
+./appstore.sh
 ```
 
 ## Apps config file
