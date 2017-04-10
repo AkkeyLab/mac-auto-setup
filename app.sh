@@ -48,6 +48,7 @@ while true; do
     '' | [Yy]* )
       brew cask install microsoft-office
       brew cask install rubymine
+      brew cask install intellij-idea
       brew cask install adobe-creative-cloud
       brew cask install adobe-photoshop-cc
       brew cask install adobe-illustrator-cc
