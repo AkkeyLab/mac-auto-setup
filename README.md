@@ -1,6 +1,9 @@
 # mac-auto-setup
 Auto setup system for macOS.
 
+## macOS version
+macOS Sierra 10.12.3
+
 ## Downloads
 To get started please run:
 ```
