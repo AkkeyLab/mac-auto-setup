@@ -42,6 +42,7 @@ brew cask install vmware-fusion
 brew cask install vmware-horizon-client
 brew cask install google-japanese-ime
 brew cask install swimat
+brew cask install spotify
 while true; do
   read -p 'Add "need license" apps? [Y/n]' Answer
   case $Answer in
