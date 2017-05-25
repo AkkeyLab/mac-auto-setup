@@ -30,4 +30,5 @@ mas install 409203825  # Numbers (3.6.2)
 mas install 1054607607 # Helium (2.0)
 mas install 409789998  # Twitter (4.2.4)
 mas install 476533227  # Prepo (2.2.7)
+mas install 884952790  # iTranslate (1.4.2)
 echo " ------------ END ------------"
