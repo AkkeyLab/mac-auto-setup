@@ -24,7 +24,7 @@ brew cask install cyberduck
 brew cask install docker
 brew cask install dropbox
 brew cask install duet
-brew cask install eclipse-ide
+brew cask install eclipse-java
 brew cask install firefox
 brew cask install genymotion
 brew cask install google-chrome
