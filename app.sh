@@ -29,7 +29,6 @@ brew cask install firefox
 brew cask install genymotion
 brew cask install google-chrome
 brew cask install iterm2
-brew cask install onyx
 brew cask install processing
 brew cask install skype
 brew cask install sourcetree
