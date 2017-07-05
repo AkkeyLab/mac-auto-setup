@@ -42,6 +42,7 @@ brew cask install vmware-horizon-client
 brew cask install google-japanese-ime
 brew cask install swimat
 brew cask install spotify
+brew cask install imageoptim
 while true; do
   read -p 'Add "need license" apps? [Y/n]' Answer
   case $Answer in
