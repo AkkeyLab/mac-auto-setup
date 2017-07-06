@@ -111,10 +111,10 @@ echo " ------------ END ------------"
 echo " ------------ TeX ------------"
 brew cask install mactex
 # Tex Live Utility > preference > path -> /Library/TeX/texbin
-sudo /usr/local/texlive/2016/bin/x86_64-darwin/tlmgr path add
+sudo /usr/local/texlive/"$(tex -version | awk '{sub("TeX Live ", "\n");print}' | grep -o '[0-9]*' | tr '\n' ' ' | awk '{gsub(" ","");print}')"/bin/x86_64-darwin/tlmgr path add
 sudo tlmgr update --self --all
 # JPN Lang settings
-cd /usr/local/texlive/2016/texmf-dist/scripts/cjk-gs-integrate
+cd /usr/local/texlive/"$(tex -version | awk '{sub("TeX Live ", "\n");print}' | grep -o '[0-9]*' | tr '\n' ' ' | awk '{gsub(" ","");print}')"/texmf-dist/scripts/cjk-gs-integrate
 sudo perl cjk-gs-integrate.pl --link-texmf --force
 sudo mktexlsr
 sudo kanji-config-updmap-sys hiragino-elcapitan-pron
