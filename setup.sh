@@ -115,7 +115,7 @@ version=$(tex -version | grep -oE '2[0-9]{3}' | head -1)
 sudo /usr/local/texlive/$version/bin/x86_64-darwin/tlmgr path add
 sudo tlmgr update --self --all
 # JPN Lang settings
-cd /usr/local/texlive/2016/texmf-dist/scripts/cjk-gs-integrate
+cd /usr/local/texlive/$version/texmf-dist/scripts/cjk-gs-integrate
 sudo perl cjk-gs-integrate.pl --link-texmf --force
 sudo mktexlsr
 sudo kanji-config-updmap-sys hiragino-elcapitan-pron
