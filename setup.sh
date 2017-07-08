@@ -92,9 +92,9 @@ echo " ------------ END ------------"
 echo " ---------- Node.js ----------"
 curl -L git.io/nodebrew | perl - setup
 nodebrew ls-remote
-nodebrew install-binary v7.0.0
+nodebrew install-binary latest
 nodebrew ls
-nodebrew use v7.0.0
+nodebrew use latest
 node -v
 npm -v
 echo " ------------ END ------------"
