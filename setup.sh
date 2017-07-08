@@ -70,8 +70,9 @@ brew install rbenv
 brew install ruby-build
 rbenv --version
 rbenv install -l
-rbenv install 2.4.0
-rbenv global 2.4.0
+ruby_latest=$(rbenv install -l | grep -v '[a-z]' | tail -1 | sed 's/ //g')
+rbenv install $ruby_latest
+rbenv global $ruby_latest
 rbenv rehash
 ruby -v
 echo " ------------ END ------------"
