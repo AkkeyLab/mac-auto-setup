@@ -9,6 +9,11 @@ cat << EOS
 EOS
 
 #
+# Memorize user pass
+#
+read -sp "Your Password: " pass;
+
+#
 # Install homebrew.
 #
 echo " --------- Homebrew ----------"
@@ -41,7 +46,7 @@ echo " ------------ END ------------"
 echo " ------------ zsh ------------"
 brew install zsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting colordiff
 which -a zsh
-sudo -- sh -c 'echo '/usr/local/bin/zsh' >> /etc/shells'
+echo $pass | sudo -S -- sh -c 'echo '/usr/local/bin/zsh' >> /etc/shells'
 chsh -s /usr/local/bin/zsh
 echo " ------------ END ------------"
 
@@ -113,13 +118,13 @@ echo " ------------ TeX ------------"
 brew cask install mactex
 # Tex Live Utility > preference > path -> /Library/TeX/texbin
 version=$(tex -version | grep -oE '2[0-9]{3}' | head -1)
-sudo /usr/local/texlive/$version/bin/x86_64-darwin/tlmgr path add
-sudo tlmgr update --self --all
+echo $pass | sudo -S /usr/local/texlive/$version/bin/x86_64-darwin/tlmgr path add
+echo $pass | sudo -S tlmgr update --self --all
 # JPN Lang settings
 cd /usr/local/texlive/$version/texmf-dist/scripts/cjk-gs-integrate
-sudo perl cjk-gs-integrate.pl --link-texmf --force
-sudo mktexlsr
-sudo kanji-config-updmap-sys hiragino-elcapitan-pron
+echo $pass | sudo -S perl cjk-gs-integrate.pl --link-texmf --force
+echo $pass | sudo -S mktexlsr
+echo $pass | sudo -S kanji-config-updmap-sys hiragino-elcapitan-pron
 # Select ==> TeXShop > Preferences > Source > pTeX (ptex2pdf)
 echo " ------------ END ------------"
 
@@ -135,7 +140,7 @@ echo " ------------ END ------------"
 # CocoaPods
 #
 echo " --------- CocoaPods ---------"
-sudo gem install -n /usr/local/bin cocoapods --pre
+echo $pass | sudo -S gem install -n /usr/local/bin cocoapods --pre
 pod setup
 echo " ------------ END ------------"
 
