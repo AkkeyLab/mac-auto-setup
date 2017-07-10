@@ -16,3 +16,25 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 
 alias swift='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift'
+
+
+### latex compile functions ###
+texc (){
+    for file in $@; do
+        file=$(echo $file | sed 's/\.tex//g');
+	    platex "$file".tex | grep 'Warning' | xargs echo;
+        echo "--------------------------------------\n"
+        dvipdfmx "$file".dvi > /dev/null;
+        find . | grep -E '$(file)\.(aux|log)' | xargs rm;
+    done
+
+    echo "open viewer? [y/n]"
+    read resp
+    
+    if [ $(echo $resp | grep '[y|Y]' | wc -l) -ge 1 ]; then
+	    for file in $@; do
+	        command open ${file}.pdf;
+	    done
+    fi
+    echo "-------- compile END --------"
+}
