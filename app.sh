@@ -53,6 +53,7 @@ while true; do
       brew cask install adobe-creative-cloud
       brew cask install adobe-photoshop-cc
       brew cask install adobe-illustrator-cc
+      brew cask install clip-studio-paint
       break;
       ;;
     [Nn]* )
