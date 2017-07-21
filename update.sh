@@ -19,3 +19,14 @@ git pull origin master
 #
 cp $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/settings/zsh/private.zsh ~/.yadr/zsh/private.zsh
 source ~/.zshrc
+
+#
+# Homebrew update and upgrade
+#
+brew update
+brew upgrade
+
+#
+# App Store app upgrade
+#
+mas upgrade
