@@ -23,6 +23,10 @@ Install App Store apps:
 ```
 ~/mac-auto-setup/appstore.sh
 ```
+Update apps and settings:
+```
+~/mac-auto-setup/update.sh
+```
 
 ## Apps config file
 | Apps | Config | Remarks |
