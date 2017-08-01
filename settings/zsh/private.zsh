@@ -20,13 +20,20 @@ alias swift='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.
 
 ### latex compile functions ###
 texc (){
-    files=$(echo $@ | sed -e 's/\.tex//g');
-    for file in $files; do
+    files=();
+    for file in $@; do
+        file=$(echo $file | sed -e 's/\.tex//g');
         platex "$file".tex;
         echo "--------------------------------------\n"
         dvipdfmx "$file".dvi > /dev/null;
-        ls $file* | grep -v -e '.tex' -e '.pdf' | xargs rm;
+	    files+=($file)
     done
+
+    # --- clean up --- #
+    for file in $files; do
+	    ls $file* | grep -ve '.tex' -e '.pdf' | xargs rm;
+    done
+    # --- clean up END --- #
 
     echo "open viewer? [y/n]"
     read resp
