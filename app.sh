@@ -48,7 +48,6 @@ while true; do
   case $Answer in
     '' | [Yy]* )
       brew cask install microsoft-office
-      brew cask install rubymine
       brew cask install intellij-idea
       brew cask install adobe-creative-cloud
       brew cask install adobe-photoshop-cc
@@ -74,7 +73,6 @@ while true; do
   read -p 'Install option apps ? [Y/n]' Answer
   case $Answer in
     '' | [Yy]* )
-      brew cask install 4k-video-downloader
       brew cask install fritzing
       brew cask install mysqlworkbench
       break;
