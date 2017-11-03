@@ -44,6 +44,7 @@ brew cask install swimat
 brew cask install spotify
 brew cask install imageoptim
 brew cask install hockey
+brew cask install soundflower
 while true; do
   read -p 'Add "need license" apps? [Y/n]' Answer
   case $Answer in
