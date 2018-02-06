@@ -84,11 +84,20 @@ echo " ------------ END ------------"
 #
 # Install dotfiles system
 #
-echo " ---------- dotfiles ---------"
-sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
-cp $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/settings/zsh/private.zsh ~/.yadr/zsh/private.zsh
-source ~/.zshrc
-echo " ------------ END ------------"
+#echo " ---------- dotfiles ---------"
+#sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
+#cp $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/settings/zsh/private.zsh ~/.yadr/zsh/private.zsh
+#source ~/.zshrc
+#echo " ------------ END ------------"
+
+#
+# Kryptco
+#
+echo " ---------- kryptco ---------"
+brew install --HEAD kryptco/tap/kr
+kr pair
+echo " ---------- END ---------"
+
 
 while true; do
   read -p 'Now install web apps? [Y/n]' Answer
