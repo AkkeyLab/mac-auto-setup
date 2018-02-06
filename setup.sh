@@ -51,6 +51,13 @@ chsh -s /usr/local/bin/zsh
 echo " ------------ END ------------"
 
 #
+# Install oh-my-zsh
+#
+echo " ---------------- Oh My Zsh ------------"
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+echo" ------------ END ------------"
+
+#
 # Install vim
 #
 echo " ------------ Vim ------------"
@@ -58,14 +65,6 @@ brew install vim --with-override-system-vi
 echo " ------------ END ------------"
 
 #
-# Powerline
-#
-echo " --------- Powerline ---------"
-# Font is 14pt Iconsolata for Powerline with Solarized Dark iterm2 colors.
-git clone https://github.com/bhilburn/powerlevel9k.git ~/powerlevel9k
-git clone https://github.com/powerline/fonts.git ~/fonts
-~/fonts/install.sh
-echo " ------------ END ------------"
 
 #
 # Install ruby
@@ -89,66 +88,6 @@ echo " ---------- dotfiles ---------"
 sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
 cp $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/settings/zsh/private.zsh ~/.yadr/zsh/private.zsh
 source ~/.zshrc
-echo " ------------ END ------------"
-
-#
-# Install Node.js env
-#
-echo " ---------- Node.js ----------"
-curl -L git.io/nodebrew | perl - setup
-nodebrew ls-remote
-nodebrew install-binary latest
-nodebrew ls
-nodebrew use latest
-node -v
-npm -v
-echo " ------------ END ------------"
-
-#
-# Install Yarn
-#
-echo " ----------- Yarn ------------"
-brew install yarn
-echo " ------------ END ------------"
-
-#
-# TeX settings
-#
-echo " ------------ TeX ------------"
-brew cask install mactex
-# Tex Live Utility > preference > path -> /Library/TeX/texbin
-version=$(tex -version | grep -oE '2[0-9]{3}' | head -1)
-echo $pass | sudo -S /usr/local/texlive/$version/bin/x86_64-darwin/tlmgr path add
-echo $pass | sudo -S tlmgr update --self --all
-# JPN Lang settings
-cd /usr/local/texlive/$version/texmf-dist/scripts/cjk-gs-integrate
-echo $pass | sudo -S perl cjk-gs-integrate.pl --link-texmf --force
-echo $pass | sudo -S mktexlsr
-echo $pass | sudo -S kanji-config-updmap-sys hiragino-elcapitan-pron
-# Select ==> TeXShop > Preferences > Source > pTeX (ptex2pdf)
-echo " ------------ END ------------"
-
-#
-# Install wget
-#
-echo " ----------- wget ------------"
-brew install wget
-wget --version
-echo " ------------ END ------------"
-
-#
-# CocoaPods
-#
-echo " --------- CocoaPods ---------"
-echo $pass | sudo -S gem install -n /usr/local/bin cocoapods --pre
-pod setup
-echo " ------------ END ------------"
-
-#
-# Carthage
-#
-echo " --------- Carthage ----------"
-brew install carthage
 echo " ------------ END ------------"
 
 while true; do
