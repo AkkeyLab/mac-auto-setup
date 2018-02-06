@@ -23,8 +23,7 @@ source ~/.zshrc
 #
 # Homebrew update and upgrade
 #
-brew update
-brew upgrade
+brew upgrade --cleanup
 
 #
 # App Store app upgrade
