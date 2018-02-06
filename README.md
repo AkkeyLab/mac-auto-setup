@@ -7,7 +7,7 @@ macOS Sierra 10.12.3
 ## Downloads
 To get started please run:
 ```
-git clone https://github.com/AkkeyLab/mac-auto-setup.git ~/mac-auto-setup
+git clone https://github.com/noumi0k/mac-auto-setup.git ~/mac-auto-setup
 ```
 
 ## Installation
