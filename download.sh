@@ -1,7 +1,7 @@
 #!/bin/bash
 cat << EOS
 
- noumi0k
+ AkkeyLab
 
  The elapsed time does not matter.
  Because speed is important.
