@@ -7,7 +7,7 @@ macOS Sierra 10.12.3
 ## Downloads
 To get started please run:
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/noumi0k/mac-auto-setup/master/setup.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/noumi0k/mac-auto-setup/master/download.sh)"
 ```
 
 ## Installation
