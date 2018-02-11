@@ -31,4 +31,5 @@ mas install 1054607607 # Helium (2.0)
 mas install 409789998  # Twitter (4.2.4)
 mas install 476533227  # Prepo (2.2.7)
 mas install 414298354  # ToyViewer (5.5.1)
+mas install 549083868  # Display Menu (2.2.3)
 echo " ------------ END ------------"
