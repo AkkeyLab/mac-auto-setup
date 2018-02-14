@@ -9,11 +9,6 @@ cat << EOS
 EOS
 
 #
-# Memorize user pass
-#
-read -sp "Your Password: " pass;
-
-#
 # Install homebrew.
 #
 echo " --------- Homebrew ----------"
