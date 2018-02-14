@@ -14,30 +14,11 @@ EOS
 read -sp "Your Password: " pass;
 
 #
-# Install homebrew.
-#
-echo " --------- Homebrew ----------"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew upgrade --all
-brew doctor
-brew -v
-echo " ------------ END ------------"
-
-#
 # Mac App Store apps install
 #
 echo " ---- Mac App Store apps -----"
 brew install mas
 mas install 497799835  # Xcode (8.2.1)
-echo " ------------ END ------------"
-
-#
-# Install git
-#
-echo " ------------ Git ------------"
-brew install git
-git --version
 echo " ------------ END ------------"
 
 #
