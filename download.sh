@@ -8,6 +8,10 @@ cat << EOS
 
 EOS
 
+function command_exists {
+  command -v "$1" > /dev/null;
+}
+
 #
 # Install homebrew.
 #
@@ -31,8 +35,8 @@ if ! command_exists git ; then
 fi
 
 #
-# noumi0k/mac-auto-setup.git
+# mac-auto-setup.git
 #
-echo " ------------ noumi0k/mac-auto-setup.git ------------"
+echo " ---- mac-auto-setup.git -----"
 git clone https://github.com/AkkeyLab/mac-auto-setup.git
 echo " ------------ END ------------"
