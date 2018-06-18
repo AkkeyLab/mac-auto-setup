@@ -18,35 +18,12 @@ function command_exists {
 read -sp "Your Password: " pass;
 
 #
-# Install homebrew.
-#
-if ! command_exists brew ; then
-  echo " --------- Homebrew ----------"
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  brew update
-  brew upgrade --all
-  brew doctor
-  brew -v
-  echo " ------------ END ------------"
-fi
-
-#
 # Mac App Store apps install
 #
 if ! command_exists mas ; then
   echo " ---- Mac App Store apps -----"
   brew install mas
   mas install 497799835  # Xcode (8.2.1)
-  echo " ------------ END ------------"
-fi
-
-#
-# Install git
-#
-if ! command_exists git ; then
-  echo " ------------ Git ------------"
-  brew install git
-  git --version
   echo " ------------ END ------------"
 fi
 
