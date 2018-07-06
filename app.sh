@@ -13,7 +13,7 @@ EOS
 #
 echo " ----- Install web apps ------"
 brew cask install android-studio
-brew cask install genymotion
+#brew cask install genymotion
 brew cask install google-chrome
 brew cask install iterm2
 brew cask install google-japanese-ime

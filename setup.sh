@@ -50,17 +50,17 @@ echo " ------------ END ------------"
 #
 # Install ruby
 #
-echo " ----------- Ruby ------------"
-brew install rbenv
-brew install ruby-build
-rbenv --version
-rbenv install -l
-ruby_latest=$(rbenv install -l | grep -v '[a-z]' | tail -1 | sed 's/ //g')
-rbenv install $ruby_latest
-rbenv global $ruby_latest
-rbenv rehash
-ruby -v
-echo " ------------ END ------------"
+#echo " ----------- Ruby ------------"
+#brew install rbenv
+#brew install ruby-build
+#rbenv --version
+#rbenv install -l
+#ruby_latest=$(rbenv install -l | grep -v '[a-z]' | tail -1 | sed 's/ //g')
+#rbenv install $ruby_latest
+#rbenv global $ruby_latest
+#rbenv rehash
+#ruby -v
+#echo " ------------ END ------------"
 
 #
 # Install dotfiles system
@@ -74,10 +74,10 @@ echo " ------------ END ------------"
 #
 # Kryptco
 #
-echo " ---------- kryptco ---------"
-brew install --HEAD kryptco/tap/kr
-kr pair
-echo " ---------- END ---------"
+#echo " ---------- kryptco ---------"
+#brew install --HEAD kryptco/tap/kr
+#kr pair
+#echo " ---------- END ---------"
 
 
 while true; do
