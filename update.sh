@@ -26,6 +26,13 @@ source ~/.zshrc
 brew upgrade --creanup
 
 #
+# Homebrew Cask check and upgrade
+#
+brew cask outdated
+brew cask upgrade
+
+#
 # App Store app upgrade
 #
 mas upgrade
+
