@@ -41,6 +41,7 @@ brew cask install imageoptim
 brew cask install soundflower
 brew cask install visual-studio-code
 brew cask install adobe-creative-cloud
+brew cask install gyazo
 
 while true; do
   read -p 'Add "need license" apps? [Y/n]' Answer
