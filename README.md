@@ -40,3 +40,6 @@ Update apps and settings:
 |VMware Horizon View Client|`~/Library/Preferences/com.vmware.horizon.plist`|-|
 |Xcode|`Preference > Fonts & Colors > Dusk`<br>`Preference > Accounts import *.developerprofile`|-|
 |Slack|`~/Library/Containers/com.tinyspeck.slackmacgap/Data/Library/Application Support/Slack/storage/*`|-|
+
+# License
+RxScreenProtectKit is available under the MIT license. See the LICENSE file for more info.
