@@ -42,4 +42,4 @@ Update apps and settings:
 |Slack|`~/Library/Containers/com.tinyspeck.slackmacgap/Data/Library/Application Support/Slack/storage/*`|-|
 
 # License
-RxScreenProtectKit is available under the MIT license. See the LICENSE file for more info.
+mac-auto-setup is available under the MIT license. See the LICENSE file for more info.
