@@ -198,3 +198,15 @@ while true; do
       echo Please answer YES or NO.
   esac
 done;
+
+read -p 'Please enter your GitHub Access Token. You can skip by typing "N".' Answer
+case $Answer in
+  '' | [Nn]* )
+    echo "Skip"
+    ;;
+  * )
+    echo "export GITHUB_ACCESS_TOKEN=${Answer}" >> ~/.yadr/zsh/private.zsh
+    echo "export HOMEBREW_GITHUB_API_TOKEN=${Answer}" >> ~/.yadr/zsh/private.zsh
+    echo "Writing to ~/.yadr/zsh/private.zsh is complete."
+    echo " ------------ END ------------"
+esac
