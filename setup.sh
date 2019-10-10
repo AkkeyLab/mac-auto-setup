@@ -156,6 +156,17 @@ if ! command_exists carthage ; then
   echo " ------------ END ------------"
 fi
 
+#
+# swiftenv
+#
+if ! command_exists swiftenv ; then
+  echo " --------- swiftenv ----------"
+  brew install kylef/formulae/swiftenv
+  echo 'if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi' >> ~/.yadr/zsh/private.zsh
+  swiftenv rehash
+  echo " ------------ END ------------"
+fi
+
 while true; do
   read -p 'Now install web apps? [Y/n]' Answer
   case $Answer in
@@ -187,3 +198,15 @@ while true; do
       echo Please answer YES or NO.
   esac
 done;
+
+read -p 'Please enter your GitHub Access Token. You can skip by typing "N".' Answer
+case $Answer in
+  '' | [Nn]* )
+    echo "Skip"
+    ;;
+  * )
+    echo "export GITHUB_ACCESS_TOKEN=${Answer}" >> ~/.yadr/zsh/private.zsh
+    echo "export HOMEBREW_GITHUB_API_TOKEN=${Answer}" >> ~/.yadr/zsh/private.zsh
+    echo "Writing to ~/.yadr/zsh/private.zsh is complete."
+    echo " ------------ END ------------"
+esac
