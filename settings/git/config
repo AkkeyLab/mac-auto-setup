@@ -1,0 +1,17 @@
+# ssh-keygen -t rsa
+# chmod 600 id_rsa
+# eval `ssh-agent` && ssh-add ~/.ssh/id_rsa
+# ssh-add -l
+# pbcopy < ~/.ssh/id_rsa.pub
+#
+# ssh -T git@github.com
+#
+
+Host github.com
+	HostName github.com
+	User git
+	PreferredAuthentications publickey
+	IdentityFile ~/.ssh/id_rsa
+	UseKeychain yes
+	AddKeysToAgent yes
+
