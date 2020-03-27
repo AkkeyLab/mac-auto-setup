@@ -2,7 +2,7 @@
 Auto setup system for macOS.
 
 ## macOS version
-macOS Sierra 10.12.3
+macOS Catalina 10.15.4
 
 ## Downloads
 To get started please run:
