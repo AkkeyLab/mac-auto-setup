@@ -27,10 +27,7 @@ brew cask install duet
 brew cask install eclipse-java
 brew cask install google-chrome
 brew cask install iterm2
-brew cask install skype
 brew cask install sourcetree
-brew cask install sublime-text
-brew cask install teamviewer
 brew cask install virtualbox
 brew cask install virtualbox-extension-pack
 brew cask install vlc
@@ -42,6 +39,8 @@ brew cask install soundflower
 brew cask install visual-studio-code
 brew cask install adobe-creative-cloud
 brew cask install gyazo
+brew cask install zoomus
+brew cask install tandem
 
 while true; do
   read -p 'Add "need license" apps? [Y/n]' Answer
