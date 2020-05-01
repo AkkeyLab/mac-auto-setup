@@ -13,6 +13,33 @@ function command_exists {
 }
 
 #
+# Copy git ssh config file
+#
+echo " ------- Git SSH config ------"
+cp $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/settings/git/config ~/.ssh/config
+while true; do
+  read -p 'Now git ssh settings? [Y/n]' Answer
+  case $Answer in
+    '' | [Yy]* )
+      ssh-keygen -t rsa
+      chmod 600 ~/.ssh/id_rsa
+      eval `ssh-agent`
+      ssh-add ~/.ssh/id_rsa
+      ssh-add -l
+      echo "Let’s register your public key on GitHub"
+      break;
+      ;;
+    [Nn]* )
+      echo "Skip settings"
+      break;
+      ;;
+    * )
+      echo Please answer YES or NO.
+  esac
+done;
+echo " ------------ END ------------"
+
+#
 # Memorize user pass
 #
 read -sp "Your Password: " pass;
