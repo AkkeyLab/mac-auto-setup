@@ -41,6 +41,7 @@ brew cask install adobe-creative-cloud
 brew cask install gyazo
 brew cask install zoomus
 brew cask install tandem
+brew cask install discord
 
 while true; do
   read -p 'Add "need license" apps? [Y/n]' Answer
