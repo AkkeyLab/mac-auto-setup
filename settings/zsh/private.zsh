@@ -5,6 +5,7 @@ export LANG=ja_JP.UTF-8
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.nodebrew/current/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
+export SDKROOT="$(xcrun --sdk macosx --show-sdk-path)"
 
 setopt print_eight_bit
 source  ~/powerlevel9k/powerlevel9k.zsh-theme
