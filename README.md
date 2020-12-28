@@ -2,7 +2,7 @@
 Auto setup system for macOS.
 
 ## macOS version
-macOS Catalina 10.15.4
+macOS Big Sur 11.1
 
 ## Downloads
 To get started please run:

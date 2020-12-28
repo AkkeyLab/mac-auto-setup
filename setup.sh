@@ -16,7 +16,7 @@ function command_exists {
 # Copy git ssh config file
 #
 echo " ------- Git SSH config ------"
-cp $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/settings/git/config ~/.ssh/config
+mkdir ~/.ssh && cp $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/settings/git/config ~/.ssh/config
 while true; do
   read -p 'Now git ssh settings? [Y/n]' Answer
   case $Answer in
@@ -110,49 +110,6 @@ sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/instal
 cp $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/settings/zsh/private.zsh ~/.yadr/zsh/private.zsh
 source ~/.zshrc
 echo " ------------ END ------------"
-
-#
-# Install Node.js env
-#
-if ! command_exists nodebrew ; then
-  echo " ---------- Node.js ----------"
-  curl -L git.io/nodebrew | perl - setup
-  nodebrew ls-remote
-  nodebrew install-binary latest
-  nodebrew ls
-  nodebrew use latest
-  node -v
-  npm -v
-  echo " ------------ END ------------"
-fi
-
-#
-# Install Yarn
-#
-if ! command_exists yarn ; then
-  echo " ----------- Yarn ------------"
-  brew install yarn
-  echo " ------------ END ------------"
-fi
-
-#
-# TeX settings
-#
-if ! command_exists tex ; then
-  echo " ------------ TeX ------------"
-  brew cask install mactex
-  # Tex Live Utility > preference > path -> /Library/TeX/texbin
-  version=$(tex -version | grep -oE '2[0-9]{3}' | head -1)
-  echo $pass | sudo -S /usr/local/texlive/$version/bin/x86_64-darwin/tlmgr path add
-  echo $pass | sudo -S tlmgr update --self --all
-  # JPN Lang settings
-  cd /usr/local/texlive/$version/texmf-dist/scripts/cjk-gs-integrate
-  echo $pass | sudo -S perl cjk-gs-integrate.pl --link-texmf --force
-  echo $pass | sudo -S mktexlsr
-  echo $pass | sudo -S kanji-config-updmap-sys hiragino-elcapitan-pron
-  # Select ==> TeXShop > Preferences > Source > pTeX (ptex2pdf)
-  echo " ------------ END ------------"
-fi
 
 #
 # Install wget
