@@ -33,6 +33,7 @@ brew install --cask gyazo
 brew install --cask zoomus
 brew install --cask tandem
 brew install --cask discord
+brew install --cask notion
 
 while true; do
   read -p 'Add "need license" apps? [Y/n]' Answer
