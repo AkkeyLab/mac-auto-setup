@@ -22,5 +22,5 @@ mas install 453164367  # SystemPal
 mas install 539883307  # LINE
 mas install 412529613  # Cinch
 mas install 409203825  # Numbers
-mas install 549083868  # Display Menu (2.2.3)
+mas install 549083868  # Display Menu
 echo " ------------ END ------------"

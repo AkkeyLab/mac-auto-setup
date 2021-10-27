@@ -38,9 +38,9 @@ while true; do
   read -p 'Add "need license" apps? [Y/n]' Answer
   case $Answer in
     '' | [Yy]* )
-      brew cask install microsoft-office
-      brew cask install intellij-idea
-      brew cask install clip-studio-paint
+      brew install --cask microsoft-office
+      brew install --cask intellij-idea
+      brew install --cask clip-studio-paint
       break;
       ;;
     [Nn]* )
