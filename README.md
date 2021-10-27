@@ -2,7 +2,7 @@
 Auto setup system for macOS.
 
 ## macOS version
-macOS Big Sur 11.1
+macOS Monterey 12.0.1
 
 ## Downloads
 To get started please run:
