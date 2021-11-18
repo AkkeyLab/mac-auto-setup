@@ -80,6 +80,7 @@ fi
 #
 echo " --------- Powerline ---------"
 # Font is 14pt Iconsolata for Powerline with Solarized Dark iterm2 colors.
+# Recommend to 'Source Code Pro for Powerline'
 git clone https://github.com/bhilburn/powerlevel9k.git ~/powerlevel9k
 git clone https://github.com/powerline/fonts.git ~/fonts
 ~/fonts/install.sh
@@ -148,6 +149,15 @@ if ! command_exists swiftenv ; then
   brew install kylef/formulae/swiftenv
   echo 'if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi' >> ~/.yadr/zsh/private.zsh
   swiftenv rehash
+  echo " ------------ END ------------"
+fi
+
+#
+# gitmoji-cli
+#
+if ! command_exists gitmoji ; then
+  echo " --------- gitmoji-cli ----------"
+  brew install gitmoji
   echo " ------------ END ------------"
 fi
 
