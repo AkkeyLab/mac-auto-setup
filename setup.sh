@@ -80,6 +80,7 @@ fi
 #
 echo " --------- Powerline ---------"
 # Font is 14pt Iconsolata for Powerline with Solarized Dark iterm2 colors.
+# Recommend to 'Source Code Pro for Powerline'
 git clone https://github.com/bhilburn/powerlevel9k.git ~/powerlevel9k
 git clone https://github.com/powerline/fonts.git ~/fonts
 ~/fonts/install.sh
