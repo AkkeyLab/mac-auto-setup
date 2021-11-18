@@ -151,6 +151,15 @@ if ! command_exists swiftenv ; then
   echo " ------------ END ------------"
 fi
 
+#
+# gitmoji-cli
+#
+if ! command_exists gitmoji ; then
+  echo " --------- gitmoji-cli ----------"
+  brew install gitmoji
+  echo " ------------ END ------------"
+fi
+
 while true; do
   read -p 'Now install web apps? [Y/n]' Answer
   case $Answer in
