@@ -33,6 +33,7 @@ brew install --cask notion
 brew install --cask figma
 brew install --cask tableplus
 brew install --cask postman
+brew install --cask clipy
 
 while true; do
   read -p 'Add "need license" apps? [Y/n]' Answer
