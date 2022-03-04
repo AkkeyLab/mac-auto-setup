@@ -17,27 +17,20 @@ function command_exists {
 #
 echo " ------- Git SSH config ------"
 mkdir ~/.ssh && cp $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/settings/git/config ~/.ssh/config
-while true; do
-  read -p 'Now git ssh settings? [Y/n]' Answer
-  case $Answer in
-    '' | [Yy]* )
-      ssh-keygen -t rsa
-      chmod 600 ~/.ssh/id_rsa
-      eval `ssh-agent`
-      ssh-add ~/.ssh/id_rsa
-      ssh-add -l
-      echo "Let’s register your public key on GitHub"
-      echo "check command: `ssh -T git@github.com`"
-      break;
-      ;;
-    [Nn]* )
-      echo "Skip settings"
-      break;
-      ;;
-    * )
-      echo Please answer YES or NO.
-  esac
-done;
+read -p 'Git ssh settings. You can skip by typing "N".' Answer
+case $Answer in
+  '' | [Nn]* )
+    echo "Skip"
+    ;;
+  * )
+    ssh-keygen -t rsa
+    chmod 600 ~/.ssh/id_rsa
+    eval `ssh-agent`
+    ssh-add ~/.ssh/id_rsa
+    ssh-add -l
+    echo "Let’s register your public key on GitHub"
+    echo "check command: `ssh -T git@github.com`"
+esac
 echo " ------------ END ------------"
 
 #
@@ -80,8 +73,7 @@ fi
 # Powerline
 #
 echo " --------- Powerline ---------"
-# Font is 14pt Iconsolata for Powerline with Solarized Dark iterm2 colors.
-# Recommend to 'Source Code Pro for Powerline'
+# Font: MesloLGS NF Regular 13pt
 brew install romkatv/powerlevel10k/powerlevel10k
 git clone https://github.com/powerline/fonts.git ~/fonts
 ~/fonts/install.sh
