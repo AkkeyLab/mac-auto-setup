@@ -122,37 +122,27 @@ if ! command_exists gitmoji ; then
   echo " ------------ END ------------"
 fi
 
-while true; do
-  read -p 'Now install web apps? [Y/n]' Answer
-  case $Answer in
-    '' | [Yy]* )
-      $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/app.sh
-      break;
-      ;;
-    [Nn]* )
-      echo "Skip install"
-      break;
-      ;;
-    * )
-      echo Please answer YES or NO.
-  esac
-done;
+read -p 'Please enter your Git User Name. You can skip by typing "N".' Answer
+case $Answer in
+  '' | [Nn]* )
+    echo "Skip"
+    ;;
+  * )
+    git config --global user.name $Answer
+    git config user.name
+    echo " ------------ END ------------"
+esac
 
-while true; do
-  read -p 'Now install App Store apps? [Y/n]' Answer
-  case $Answer in
-    '' | [Yy]* )
-      $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/appstore.sh
-      break;
-      ;;
-    [Nn]* )
-      echo "Skip install"
-      break;
-      ;;
-    * )
-      echo Please answer YES or NO.
-  esac
-done;
+read -p 'Please enter your Git User e-mail. You can skip by typing "N".' Answer
+case $Answer in
+  '' | [Nn]* )
+    echo "Skip"
+    ;;
+  * )
+    git config --global user.email $Answer
+    git config user.email
+    echo " ------------ END ------------"
+esac
 
 read -p 'Please enter your GitHub Access Token. You can skip by typing "N".' Answer
 case $Answer in
@@ -164,4 +154,22 @@ case $Answer in
     echo "export HOMEBREW_GITHUB_API_TOKEN=${Answer}" >> ~/.yadr/zsh/private.zsh
     echo "Writing to ~/.yadr/zsh/private.zsh is complete."
     echo " ------------ END ------------"
+esac
+
+read -p 'Install App Store apps. You can skip by typing "N".' Answer
+case $Answer in
+  '' | [Nn]* )
+    echo "Skip"
+    ;;
+  * )
+    $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/appstore.sh
+esac
+
+read -p 'Install web apps. You can skip by typing "N".' Answer
+case $Answer in
+  '' | [Nn]* )
+    echo "Skip"
+    ;;
+  * )
+    $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/app.sh
 esac
