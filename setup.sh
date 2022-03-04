@@ -70,11 +70,21 @@ if ! command_exists vim ; then
 fi
 
 #
+# Install dotfiles system
+#
+echo " ---------- dotfiles ---------"
+sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
+cp $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/settings/zsh/private.zsh ~/.yadr/zsh/private.zsh
+source ~/.zshrc
+echo " ------------ END ------------"
+
+#
 # Powerline
 #
 echo " --------- Powerline ---------"
 # Font: MesloLGS NF Regular 13pt
 brew install romkatv/powerlevel10k/powerlevel10k
+echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >> ~/.yadr/zsh/private.zsh
 git clone https://github.com/powerline/fonts.git ~/fonts
 ~/fonts/install.sh
 echo " ------------ END ------------"
@@ -85,6 +95,7 @@ echo " ------------ END ------------"
 if ! command_exists rbenv ; then
   echo " ----------- Ruby ------------"
   brew install rbenv
+  echo 'eval "$(rbenv init - zsh)"' >> ~/.yadr/zsh/private.zsh
   brew install ruby-build
   rbenv --version
   rbenv install -l
@@ -95,15 +106,6 @@ if ! command_exists rbenv ; then
   ruby -v
   echo " ------------ END ------------"
 fi
-
-#
-# Install dotfiles system
-#
-echo " ---------- dotfiles ---------"
-sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
-cp $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/settings/zsh/private.zsh ~/.yadr/zsh/private.zsh
-source ~/.zshrc
-echo " ------------ END ------------"
 
 #
 # gitmoji-cli
