@@ -27,6 +27,7 @@ while true; do
       ssh-add ~/.ssh/id_rsa
       ssh-add -l
       echo "Let’s register your public key on GitHub"
+      echo "check command: `ssh -T git@github.com`"
       break;
       ;;
     [Nn]* )
@@ -50,7 +51,7 @@ read -sp "Your Password: " pass;
 if ! command_exists mas ; then
   echo " ---- Mac App Store apps -----"
   brew install mas
-  mas install 497799835  # Xcode (8.2.1)
+  mas install 497799835  # Xcode
   echo " ------------ END ------------"
 fi
 
@@ -81,7 +82,7 @@ fi
 echo " --------- Powerline ---------"
 # Font is 14pt Iconsolata for Powerline with Solarized Dark iterm2 colors.
 # Recommend to 'Source Code Pro for Powerline'
-git clone https://github.com/bhilburn/powerlevel9k.git ~/powerlevel9k
+brew install romkatv/powerlevel10k/powerlevel10k
 git clone https://github.com/powerline/fonts.git ~/fonts
 ~/fonts/install.sh
 echo " ------------ END ------------"
@@ -111,46 +112,6 @@ sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/instal
 cp $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/settings/zsh/private.zsh ~/.yadr/zsh/private.zsh
 source ~/.zshrc
 echo " ------------ END ------------"
-
-#
-# Install wget
-#
-if ! command_exists wget ; then
-  echo " ----------- wget ------------"
-  brew install wget
-  wget --version
-  echo " ------------ END ------------"
-fi
-
-#
-# CocoaPods
-#
-if ! command_exists pod ; then
-  echo " --------- CocoaPods ---------"
-  echo $pass | sudo -S gem install -n /usr/local/bin cocoapods --pre
-  pod setup
-  echo " ------------ END ------------"
-fi
-
-#
-# Carthage
-#
-if ! command_exists carthage ; then
-  echo " --------- Carthage ----------"
-  brew install carthage
-  echo " ------------ END ------------"
-fi
-
-#
-# swiftenv
-#
-if ! command_exists swiftenv ; then
-  echo " --------- swiftenv ----------"
-  brew install kylef/formulae/swiftenv
-  echo 'if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi' >> ~/.yadr/zsh/private.zsh
-  swiftenv rehash
-  echo " ------------ END ------------"
-fi
 
 #
 # gitmoji-cli

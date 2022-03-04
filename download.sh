@@ -17,10 +17,11 @@ function command_exists {
 #
 if ! command_exists brew ; then
   echo " --------- Homebrew ----------"
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  brew update
-  brew upgrade
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew -v
+  if [ -d /opt/homebrew/bin ]; then
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+  fi
   echo " ------------ END ------------"
 fi
 
