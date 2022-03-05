@@ -120,6 +120,10 @@ echo " --------- Powerline ---------"
 # Font: MesloLGS NF Regular 13pt
 brew install romkatv/powerlevel10k/powerlevel10k
 echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.yadr/zsh/private.zsh
+cp $(
+  cd $(dirname ${BASH_SOURCE:-$0})
+  pwd
+)/settings/zsh/p10k.zsh ~/.yadr/zsh/p10k.zsh
 echo " ------------ END ------------"
 
 #
