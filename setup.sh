@@ -58,8 +58,13 @@ if ! command_exists zsh; then
   echo " ------------ zsh ------------"
   brew install zsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting colordiff
   which -a zsh
-  echo $pass | sudo -S -- sh -c 'echo '/usr/local/bin/zsh' >> /etc/shells'
-  chsh -s /usr/local/bin/zsh
+  if [ -d /opt/homebrew/bin ]; then
+    echo $pass | sudo -S -- sh -c 'echo '/opt/homebrew/bin/zsh' >> /etc/shells'
+    chsh -s /opt/homebrew/bin/zsh
+  else
+    echo $pass | sudo -S -- sh -c 'echo '/usr/local/bin/zsh' >> /etc/shells'
+    chsh -s /usr/local/bin/zsh
+  fi
   echo " ------------ END ------------"
 fi
 
