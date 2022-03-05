@@ -159,6 +159,18 @@ if ! command_exists gitmoji; then
   echo " ------------ END ------------"
 fi
 
+#
+# Create .bashrc file. Bash is used within Xcode
+#
+echo " ----------- Create .bashrc file ------------"
+if [ -d /opt/homebrew ]; then
+  echo 'export PATH=/opt/homebrew/bin:$PATH\nexport PATH=/opt/homebrew/sbin:$PATH' >>~/.bashrc
+fi
+if [ -d /usr/local ]; then
+  echo 'export PATH=/usr/local/bin:$PATH\nexport PATH=/usr/local/sbin:$PATH' >>~/.bashrc
+fi
+echo " ------------ END ------------"
+
 read -p 'Please enter your Git User Name. You can skip by typing "N".' Answer
 case $Answer in
 '' | [Nn]*)
