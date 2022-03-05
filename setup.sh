@@ -28,8 +28,7 @@ case $Answer in
     eval `ssh-agent`
     ssh-add ~/.ssh/id_rsa
     ssh-add -l
-    echo "Let’s register your public key on GitHub"
-    echo "check command: `ssh -T git@github.com`"
+    echo 'Let’s register your public key on GitHub\ncheck command: `ssh -T git@github.com`'
 esac
 echo " ------------ END ------------"
 
@@ -85,8 +84,6 @@ echo " --------- Powerline ---------"
 # Font: MesloLGS NF Regular 13pt
 brew install romkatv/powerlevel10k/powerlevel10k
 echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >> ~/.yadr/zsh/private.zsh
-git clone https://github.com/powerline/fonts.git ~/fonts
-~/fonts/install.sh
 echo " ------------ END ------------"
 
 #
