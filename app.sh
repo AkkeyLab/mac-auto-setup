@@ -1,5 +1,5 @@
 #!/bin/bash
-cat << EOS
+cat <<EOS
 
  AkkeyLab
 
@@ -38,19 +38,19 @@ brew install --cask clipy
 while true; do
   read -p 'Add "need license" apps? [Y/n]' Answer
   case $Answer in
-    '' | [Yy]* )
-      brew install --cask microsoft-office
-      brew install --cask intellij-idea
-      brew install --cask clip-studio-paint
-      break;
-      ;;
-    [Nn]* )
-      echo "Skip install"
-      break;
-      ;;
-    * )
-      echo Please answer YES or NO.
+  '' | [Yy]*)
+    brew install --cask microsoft-office
+    brew install --cask intellij-idea
+    brew install --cask clip-studio-paint
+    break
+    ;;
+  [Nn]*)
+    echo "Skip install"
+    break
+    ;;
+  *)
+    echo Please answer YES or NO.
+    ;;
   esac
-done;
+done
 echo " ------------ END ------------"
-

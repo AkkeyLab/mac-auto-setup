@@ -1,5 +1,5 @@
 #!/bin/bash
-cat << EOS
+cat <<EOS
 
  AkkeyLab
 

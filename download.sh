@@ -1,5 +1,5 @@
 #!/bin/bash
-cat << EOS
+cat <<EOS
 
  AkkeyLab
 
@@ -9,18 +9,18 @@ cat << EOS
 EOS
 
 function command_exists {
-  command -v "$1" > /dev/null;
+  command -v "$1" >/dev/null
 }
 
 #
 # Install homebrew.
 #
-if ! command_exists brew ; then
+if ! command_exists brew; then
   echo " --------- Homebrew ----------"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew -v
   if [ -d /opt/homebrew/bin ]; then
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>~/.zprofile
   fi
   echo " ------------ END ------------"
 fi
@@ -28,7 +28,7 @@ fi
 #
 # Install git
 #
-if ! command_exists git ; then
+if ! command_exists git; then
   echo " ------------ Git ------------"
   brew install git
   git --version

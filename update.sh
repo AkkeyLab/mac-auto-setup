@@ -1,5 +1,5 @@
 #!/bin/bash
-cat << EOS
+cat <<EOS
 
  AkkeyLab
 
@@ -17,7 +17,10 @@ git pull origin master
 #
 # private.zsh update
 #
-cp $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/settings/zsh/private.zsh ~/.yadr/zsh/private.zsh
+cp $(
+    cd $(dirname ${BASH_SOURCE:-$0})
+    pwd
+)/settings/zsh/private.zsh ~/.yadr/zsh/private.zsh
 source ~/.zshrc
 
 #
@@ -35,4 +38,3 @@ brew cask upgrade
 # App Store app upgrade
 #
 mas upgrade
-
