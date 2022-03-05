@@ -73,7 +73,7 @@ fi
 #
 if ! command_exists vim; then
   echo " ------------ Vim ------------"
-  brew install vim --with-override-system-vi
+  brew install vim
   echo " ------------ END ------------"
 fi
 
