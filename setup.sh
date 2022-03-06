@@ -81,35 +81,19 @@ cp $(
   cd $(dirname ${BASH_SOURCE:-$0})
   pwd
 )/settings/zsh/private.zsh ~/.yadr/zsh/private.zsh
-if [ "$(uname -m)" = arm64 ]; then
-  echo "typeset -U path PATH
+echo "typeset -U path PATH
 path=(
-  /opt/homebrew/bin(N-/)
-  /opt/homebrew/sbin(N-/)
+  $(brew --prefix)/bin(N-/)
+  $(brew --prefix)/sbin(N-/)
   /usr/bin
   /usr/sbin
   /bin
   /sbin
-  /usr/local/bin(N-/)
-  /usr/local/sbin(N-/)
   /Library/Apple/usr/bin
 )
 " >>~/.yadr/zsh/private.zsh
+if [ -d /opt/homebrew/bin ]; then
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>~/.yadr/zsh/private.zsh
-else
-  echo "typeset -U path PATH
-path=(
-  /usr/local/bin(N-/)
-  /usr/local/sbin(N-/)
-  /usr/bin
-  /usr/sbin
-  /bin
-  /sbin
-  /opt/homebrew/bin(N-/)
-  /opt/homebrew/sbin(N-/)
-  /Library/Apple/usr/bin
-)
-" >>~/.yadr/zsh/private.zsh
 fi
 source ~/.zshrc
 echo " ------------ END ------------"
