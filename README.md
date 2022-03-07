@@ -2,7 +2,7 @@
 Auto setup system for macOS.
 
 ## macOS version
-macOS Monterey 12.2.1
+macOS Monterey 12.2.1<br>
 Intel / Apple Silicon
 
 ## Downloads
