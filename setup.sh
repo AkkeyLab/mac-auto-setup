@@ -1,5 +1,5 @@
 #!/bin/bash
-cat << EOS
+cat <<EOS
 
  AkkeyLab
 
@@ -9,89 +9,115 @@ cat << EOS
 EOS
 
 function command_exists {
-  command -v "$1" > /dev/null;
+  command -v "$1" >/dev/null
 }
 
 #
 # Copy git ssh config file
 #
 echo " ------- Git SSH config ------"
-mkdir ~/.ssh && cp $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/settings/git/config ~/.ssh/config
-while true; do
-  read -p 'Now git ssh settings? [Y/n]' Answer
-  case $Answer in
-    '' | [Yy]* )
-      ssh-keygen -t rsa
-      chmod 600 ~/.ssh/id_rsa
-      eval `ssh-agent`
-      ssh-add ~/.ssh/id_rsa
-      ssh-add -l
-      echo "Let’s register your public key on GitHub"
-      break;
-      ;;
-    [Nn]* )
-      echo "Skip settings"
-      break;
-      ;;
-    * )
-      echo Please answer YES or NO.
-  esac
-done;
+mkdir ~/.ssh && cp $(
+  cd $(dirname ${BASH_SOURCE:-$0})
+  pwd
+)/settings/git/config ~/.ssh/config
+read -p 'Git ssh settings. You can skip by typing "N".' Answer
+case $Answer in
+'' | [Nn]*)
+  echo "Skip"
+  ;;
+*)
+  ssh-keygen -t rsa
+  chmod 600 ~/.ssh/id_rsa
+  eval $(ssh-agent)
+  ssh-add ~/.ssh/id_rsa
+  ssh-add -l
+  echo 'Let’s register your public key on GitHub\ncheck command: `ssh -T git@github.com`'
+  ;;
+esac
 echo " ------------ END ------------"
 
 #
 # Memorize user pass
 #
-read -sp "Your Password: " pass;
+read -sp "Your Password: " pass
 
 #
 # Mac App Store apps install
 #
-if ! command_exists mas ; then
+if ! command_exists mas; then
   echo " ---- Mac App Store apps -----"
   brew install mas
-  mas install 497799835  # Xcode (8.2.1)
+  mas install 497799835 # Xcode
   echo " ------------ END ------------"
 fi
 
 #
 # Install zsh
 #
-if ! command_exists zsh ; then
+if ! command_exists zsh; then
   echo " ------------ zsh ------------"
   brew install zsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting colordiff
   which -a zsh
-  echo $pass | sudo -S -- sh -c 'echo '/usr/local/bin/zsh' >> /etc/shells'
-  chsh -s /usr/local/bin/zsh
+  echo $pass | sudo -S -- sh -c 'echo "$(brew --prefix)/bin/zsh" >> /etc/shells'
+  chsh -s "$(brew --prefix)/bin/zsh"
   echo " ------------ END ------------"
 fi
 
 #
 # Install vim
 #
-if ! command_exists vim ; then
+if ! command_exists vim; then
   echo " ------------ Vim ------------"
-  brew install vim --with-override-system-vi
+  brew install vim
   echo " ------------ END ------------"
 fi
+
+#
+# Install dotfiles system
+#
+echo " ---------- dotfiles ---------"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh)"
+cp $(
+  cd $(dirname ${BASH_SOURCE:-$0})
+  pwd
+)/settings/zsh/private.zsh ~/.yadr/zsh/private.zsh
+echo "typeset -U path PATH
+path=(
+  $(brew --prefix)/bin(N-/)
+  $(brew --prefix)/sbin(N-/)
+  /usr/bin
+  /usr/sbin
+  /bin
+  /sbin
+  /Library/Apple/usr/bin
+)
+" >>~/.yadr/zsh/private.zsh
+if [ -d /opt/homebrew/bin ]; then
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>~/.yadr/zsh/private.zsh
+fi
+source ~/.zshrc
+echo " ------------ END ------------"
 
 #
 # Powerline
 #
 echo " --------- Powerline ---------"
-# Font is 14pt Iconsolata for Powerline with Solarized Dark iterm2 colors.
-# Recommend to 'Source Code Pro for Powerline'
-git clone https://github.com/bhilburn/powerlevel9k.git ~/powerlevel9k
-git clone https://github.com/powerline/fonts.git ~/fonts
-~/fonts/install.sh
+# Font: MesloLGS NF Regular 13pt
+brew install romkatv/powerlevel10k/powerlevel10k
+echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.yadr/zsh/private.zsh
+cp $(
+  cd $(dirname ${BASH_SOURCE:-$0})
+  pwd
+)/settings/zsh/p10k.zsh ~/.yadr/zsh/p10k.zsh
 echo " ------------ END ------------"
 
 #
 # Install ruby
 #
-if ! command_exists rbenv ; then
+if ! command_exists rbenv; then
   echo " ----------- Ruby ------------"
   brew install rbenv
+  echo 'eval "$(rbenv init - zsh)"' >>~/.yadr/zsh/private.zsh
   brew install ruby-build
   rbenv --version
   rbenv install -l
@@ -104,103 +130,73 @@ if ! command_exists rbenv ; then
 fi
 
 #
-# Install dotfiles system
-#
-echo " ---------- dotfiles ---------"
-sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
-cp $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/settings/zsh/private.zsh ~/.yadr/zsh/private.zsh
-source ~/.zshrc
-echo " ------------ END ------------"
-
-#
-# Install wget
-#
-if ! command_exists wget ; then
-  echo " ----------- wget ------------"
-  brew install wget
-  wget --version
-  echo " ------------ END ------------"
-fi
-
-#
-# CocoaPods
-#
-if ! command_exists pod ; then
-  echo " --------- CocoaPods ---------"
-  echo $pass | sudo -S gem install -n /usr/local/bin cocoapods --pre
-  pod setup
-  echo " ------------ END ------------"
-fi
-
-#
-# Carthage
-#
-if ! command_exists carthage ; then
-  echo " --------- Carthage ----------"
-  brew install carthage
-  echo " ------------ END ------------"
-fi
-
-#
-# swiftenv
-#
-if ! command_exists swiftenv ; then
-  echo " --------- swiftenv ----------"
-  brew install kylef/formulae/swiftenv
-  echo 'if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi' >> ~/.yadr/zsh/private.zsh
-  swiftenv rehash
-  echo " ------------ END ------------"
-fi
-
-#
 # gitmoji-cli
 #
-if ! command_exists gitmoji ; then
+if ! command_exists gitmoji; then
   echo " --------- gitmoji-cli ----------"
   brew install gitmoji
   echo " ------------ END ------------"
 fi
 
-while true; do
-  read -p 'Now install web apps? [Y/n]' Answer
-  case $Answer in
-    '' | [Yy]* )
-      $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/app.sh
-      break;
-      ;;
-    [Nn]* )
-      echo "Skip install"
-      break;
-      ;;
-    * )
-      echo Please answer YES or NO.
-  esac
-done;
+read -p 'Please enter your Git User Name. You can skip by typing "N".' Answer
+case $Answer in
+'' | [Nn]*)
+  echo "Skip"
+  ;;
+*)
+  git config --global user.name $Answer
+  git config user.name
+  echo " ------------ END ------------"
+  ;;
+esac
 
-while true; do
-  read -p 'Now install App Store apps? [Y/n]' Answer
-  case $Answer in
-    '' | [Yy]* )
-      $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/appstore.sh
-      break;
-      ;;
-    [Nn]* )
-      echo "Skip install"
-      break;
-      ;;
-    * )
-      echo Please answer YES or NO.
-  esac
-done;
+read -p 'Please enter your Git User e-mail. You can skip by typing "N".' Answer
+case $Answer in
+'' | [Nn]*)
+  echo "Skip"
+  ;;
+*)
+  git config --global user.email $Answer
+  git config user.email
+  echo " ------------ END ------------"
+  ;;
+esac
 
 read -p 'Please enter your GitHub Access Token. You can skip by typing "N".' Answer
 case $Answer in
-  '' | [Nn]* )
-    echo "Skip"
-    ;;
-  * )
-    echo "export GITHUB_ACCESS_TOKEN=${Answer}" >> ~/.yadr/zsh/private.zsh
-    echo "export HOMEBREW_GITHUB_API_TOKEN=${Answer}" >> ~/.yadr/zsh/private.zsh
-    echo "Writing to ~/.yadr/zsh/private.zsh is complete."
-    echo " ------------ END ------------"
+'' | [Nn]*)
+  echo "Skip"
+  ;;
+*)
+  echo "export GITHUB_ACCESS_TOKEN=${Answer}" >>~/.yadr/zsh/private.zsh
+  echo "export HOMEBREW_GITHUB_API_TOKEN=${Answer}" >>~/.yadr/zsh/private.zsh
+  echo "Writing to ~/.yadr/zsh/private.zsh is complete."
+  echo " ------------ END ------------"
+  ;;
+esac
+
+read -p 'Install App Store apps. You can skip by typing "N".' Answer
+case $Answer in
+'' | [Nn]*)
+  echo "Skip"
+  ;;
+*)
+  $(
+    cd $(dirname ${BASH_SOURCE:-$0})
+    pwd
+  )/appstore.sh
+  ;;
+esac
+
+read -p 'Install web apps. You can skip by typing "N".' Answer
+case $Answer in
+'' | [Nn]*)
+  echo "Skip"
+  ;;
+*)
+  $(
+    cd $(dirname ${BASH_SOURCE:-$0})
+    pwd
+  )/app.sh
+  ;;
 esac

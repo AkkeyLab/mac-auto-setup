@@ -1,5 +1,5 @@
 #!/bin/bash
-cat << EOS
+cat <<EOS
 
  AkkeyLab
 
@@ -16,12 +16,11 @@ brew install --cask 1password
 brew tap AdoptOpenJDK/openjdk
 brew install --cask adoptopenjdk
 brew install --cask android-studio
-brew install --cask cyberduck
 brew install --cask docker
 brew install --cask google-chrome
 brew install --cask iterm2
-brew install --cask vlc
 brew install --cask google-japanese-ime
+brew install --cask slack
 brew install --cask spotify
 brew install --cask imageoptim
 brew install --cask visual-studio-code
@@ -34,23 +33,16 @@ brew install --cask figma
 brew install --cask tableplus
 brew install --cask postman
 brew install --cask clipy
+brew install --cask alfred
 
-while true; do
-  read -p 'Add "need license" apps? [Y/n]' Answer
-  case $Answer in
-    '' | [Yy]* )
-      brew install --cask microsoft-office
-      brew install --cask intellij-idea
-      brew install --cask clip-studio-paint
-      break;
-      ;;
-    [Nn]* )
-      echo "Skip install"
-      break;
-      ;;
-    * )
-      echo Please answer YES or NO.
-  esac
-done;
-echo " ------------ END ------------"
-
+read -p 'Install license need apps. You can skip by typing "N".' Answer
+case $Answer in
+'' | [Nn]*)
+  echo "Skip"
+  ;;
+*)
+  brew install --cask microsoft-office
+  brew install --cask intellij-idea
+  brew install --cask clip-studio-paint
+  ;;
+esac

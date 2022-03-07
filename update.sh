@@ -1,5 +1,9 @@
 #!/bin/bash
-cat << EOS
+script_dir_path=$(
+    cd "$(dirname "$0")"
+    pwd
+)
+cat <<EOS
 
  AkkeyLab
 
@@ -9,30 +13,31 @@ cat << EOS
 EOS
 
 #
-# repository update
+# mac-auto-setup repository update
 #
+cd $script_dir_path
 git checkout master
 git pull origin master
 
 #
-# private.zsh update
+# skwp/dotfiles repository update
 #
-cp $(cd $(dirname ${BASH_SOURCE:-$0}); pwd)/settings/zsh/private.zsh ~/.yadr/zsh/private.zsh
-source ~/.zshrc
+cd ~/.yadr
+git pull --rebase
+rake update
+cd $script_dir_path
 
 #
 # Homebrew update and upgrade
 #
-brew upgrade --creanup
+brew upgrade
 
 #
 # Homebrew Cask check and upgrade
 #
-brew cask outdated
-brew cask upgrade
+brew upgrade --casks
 
 #
 # App Store app upgrade
 #
 mas upgrade
-
