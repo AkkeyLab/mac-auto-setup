@@ -59,6 +59,8 @@ if ! command_exists zsh; then
   brew install zsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting colordiff
   which -a zsh
   echo $pass | sudo -S -- sh -c 'echo "$(brew --prefix)/bin/zsh" >> /etc/shells'
+  # This is a workaround for problems that Xcode and others may refer to
+  echo $pass | sudo sh -c "mkdir -p /usr/local/bin & ln -s $(brew --prefix)/bin/zsh /usr/local/bin/zsh"
   chsh -s "$(brew --prefix)/bin/zsh"
   echo " ------------ END ------------"
 fi
