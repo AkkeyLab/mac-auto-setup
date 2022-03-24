@@ -54,7 +54,7 @@ fi
 #
 # Install zsh
 #
-if ! command_exists zsh; then
+if [ ! -e "$(brew --prefix)/bin/zsh" ]; then
   echo " ------------ zsh ------------"
   brew install zsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting colordiff
   which -a zsh
