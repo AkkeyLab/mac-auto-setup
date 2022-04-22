@@ -114,6 +114,16 @@ cp $(
 echo " ------------ END ------------"
 
 #
+# Install asdf
+#
+if ! command_exists asdf; then
+  echo " ----------- asdf ------------"
+  brew install asdf
+  echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >>~/.yadr/zsh/private.zsh
+  echo " ------------ END ------------"
+fi
+
+#
 # Install ruby
 #
 if ! command_exists rbenv; then
