@@ -126,7 +126,7 @@ fi
 #
 # Install ruby
 #
-if ! command_exists rbenv; then
+if [ ! -e "$(echo ~$USERNAME)/.asdf/shims/ruby" ]; then
   echo " ----------- Ruby ------------"
   asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
   ruby_latest=$(asdf list all ruby | grep -v '[a-z]' | tail -1 | sed 's/ //g')
