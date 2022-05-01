@@ -114,20 +114,28 @@ cp $(
 echo " ------------ END ------------"
 
 #
+# Install asdf
+#
+if ! command_exists asdf; then
+  echo " ----------- asdf ------------"
+  brew install asdf
+  echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >>~/.yadr/zsh/private.zsh
+  echo " ------------ END ------------"
+fi
+
+#
 # Install ruby
 #
 if ! command_exists rbenv; then
   echo " ----------- Ruby ------------"
-  brew install rbenv
-  echo 'eval "$(rbenv init - zsh)"' >>~/.yadr/zsh/private.zsh
-  brew install ruby-build
-  rbenv --version
-  rbenv install -l
-  ruby_latest=$(rbenv install -l | grep -v '[a-z]' | tail -1 | sed 's/ //g')
-  rbenv install $ruby_latest
-  rbenv global $ruby_latest
-  rbenv rehash
+  asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+  ruby_latest=$(asdf list all ruby | grep -v '[a-z]' | tail -1 | sed 's/ //g')
+  asdf install ruby $ruby_latest
+  asdf global ruby $ruby_latest
+  asdf reshim ruby
   ruby -v
+  where ruby
+  asdf which ruby
   echo " ------------ END ------------"
 fi
 
