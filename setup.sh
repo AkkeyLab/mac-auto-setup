@@ -152,6 +152,7 @@ if [ ! -e "$(echo ~$USERNAME)/.asdf/shims/go" ]; then
   go version
   where go
   asdf which go
+  # GOPATH -> https://github.com/kennyp/asdf-golang/blob/master/bin/exec-env
   echo " ------------ END ------------"
 fi
 
