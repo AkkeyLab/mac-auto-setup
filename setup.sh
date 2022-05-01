@@ -140,6 +140,22 @@ if [ ! -e "$(echo ~$USERNAME)/.asdf/shims/ruby" ]; then
 fi
 
 #
+# Install Golang
+#
+if [ ! -e "$(echo ~$USERNAME)/.asdf/shims/go" ]; then
+  echo " ---------- Golang -----------"
+  asdf plugin add golang https://github.com/kennyp/asdf-golang
+  golang_latest=$(asdf list all golang | grep -v '[a-z]' | tail -1 | sed 's/ //g')
+  asdf install golang $golang_latest
+  asdf global golang $golang_latest
+  asdf reshim golang
+  go version
+  where go
+  asdf which go
+  echo " ------------ END ------------"
+fi
+
+#
 # gitmoji-cli
 #
 if ! command_exists gitmoji; then
