@@ -153,6 +153,8 @@ if [ ! -e "$(echo ~$USERNAME)/.asdf/shims/go" ]; then
   where go
   asdf which go
   # GOPATH -> https://github.com/kennyp/asdf-golang/blob/master/bin/exec-env
+  echo -e 'export GOPATH=$(asdf where golang)/go' >>~/.yadr/zsh/private.zsh
+  echo -e 'export PATH="$PATH:$GOPATH"' >>~/.yadr/zsh/private.zsh
   echo " ------------ END ------------"
 fi
 
