@@ -167,6 +167,15 @@ if ! command_exists gitmoji; then
   echo " ------------ END ------------"
 fi
 
+#
+# bat command
+#
+if ! command_exists bat; then
+  echo " --------- bat command ----------"
+  brew install bat
+  echo " ------------ END ------------"
+fi
+
 read -p 'Please enter your Git User Name. You can skip by typing "N".' Answer
 case $Answer in
 '' | [Nn]*)
