@@ -213,6 +213,20 @@ case $Answer in
   ;;
 esac
 
+read -p 'Install Google Cloud CLI. You can skip by typing "N".' Answer
+case $Answer in
+'' | [Nn]*)
+  echo "Skip"
+  ;;
+*)
+  brew install --cask google-cloud-sdk
+  echo "source $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc" >>~/.yadr/zsh/private.zsh
+  echo "source $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc" >>~/.yadr/zsh/private.zsh
+  source ~/.zshrc
+  gcloud auth login
+  ;;
+esac
+
 read -p 'Install App Store apps. You can skip by typing "N".' Answer
 case $Answer in
 '' | [Nn]*)
