@@ -20,12 +20,12 @@ mkdir ~/.ssh && cp $(
   cd $(dirname ${BASH_SOURCE:-$0})
   pwd
 )/settings/git/config ~/.ssh/config
-read -p 'Git ssh settings. You can skip by typing "N".' Answer
-case $Answer in
+read -p 'Do you want to configure Git ssh ? [y/n]' input
+case $input in
 '' | [Nn]*)
   echo "Skip"
   ;;
-*)
+[Yy]*)
   ssh-keygen -t rsa
   chmod 600 ~/.ssh/id_rsa
   eval $(ssh-agent)
@@ -176,49 +176,52 @@ if ! command_exists bat; then
   echo " ------------ END ------------"
 fi
 
-read -p 'Please enter your Git User Name. You can skip by typing "N".' Answer
-case $Answer in
+read -p 'Do you want to enter your Git user name ? [y/n]' input
+case $input in
 '' | [Nn]*)
   echo "Skip"
   ;;
-*)
-  git config --global user.name $Answer
+[Yy]*)
+  read -p 'Git user name:' name
+  git config --global user.name $name
   git config user.name
   echo " ------------ END ------------"
   ;;
 esac
 
-read -p 'Please enter your Git User e-mail. You can skip by typing "N".' Answer
-case $Answer in
+read -p 'Do you want to enter your Git user e-mail ? [y/n]' input
+case $input in
 '' | [Nn]*)
   echo "Skip"
   ;;
-*)
-  git config --global user.email $Answer
+[Yy]*)
+  read -p 'Git user e-mail:' mail
+  git config --global user.email $mail
   git config user.email
   echo " ------------ END ------------"
   ;;
 esac
 
-read -p 'Please enter your GitHub Access Token. You can skip by typing "N".' Answer
-case $Answer in
+read -p 'Do you want to enter your GitHub Access Token ? [y/n]' input
+case $input in
 '' | [Nn]*)
   echo "Skip"
   ;;
-*)
-  echo "export GITHUB_ACCESS_TOKEN=${Answer}" >>~/.yadr/zsh/private.zsh
-  echo "export HOMEBREW_GITHUB_API_TOKEN=${Answer}" >>~/.yadr/zsh/private.zsh
+[Yy]*)
+  read -p 'GitHub Access Token:' token
+  echo "export GITHUB_ACCESS_TOKEN=${token}" >>~/.yadr/zsh/private.zsh
+  echo "export HOMEBREW_GITHUB_API_TOKEN=${token}" >>~/.yadr/zsh/private.zsh
   echo "Writing to ~/.yadr/zsh/private.zsh is complete."
   echo " ------------ END ------------"
   ;;
 esac
 
-read -p 'Install Google Cloud CLI. You can skip by typing "N".' Answer
-case $Answer in
+read -p 'Do you want to install Google Cloud CLI ? [y/n]' input
+case $input in
 '' | [Nn]*)
   echo "Skip"
   ;;
-*)
+[Yy]*)
   brew install --cask google-cloud-sdk
   echo "source $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc" >>~/.yadr/zsh/private.zsh
   echo "source $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc" >>~/.yadr/zsh/private.zsh
@@ -227,12 +230,12 @@ case $Answer in
   ;;
 esac
 
-read -p 'Install App Store apps. You can skip by typing "N".' Answer
-case $Answer in
+read -p 'Do you want to install App Store Apps ? [y/n]' input
+case $input in
 '' | [Nn]*)
   echo "Skip"
   ;;
-*)
+[Yy]*)
   $(
     cd $(dirname ${BASH_SOURCE:-$0})
     pwd
@@ -240,12 +243,12 @@ case $Answer in
   ;;
 esac
 
-read -p 'Install web apps. You can skip by typing "N".' Answer
-case $Answer in
+read -p 'Do you want to install Third Party Apps ? [y/n]' input
+case $input in
 '' | [Nn]*)
   echo "Skip"
   ;;
-*)
+[Yy]*)
   $(
     cd $(dirname ${BASH_SOURCE:-$0})
     pwd
