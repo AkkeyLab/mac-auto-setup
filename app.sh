@@ -35,12 +35,12 @@ brew install --cask postman
 brew install --cask clipy
 brew install --cask alfred
 
-read -p 'Install license need apps. You can skip by typing "N".' Answer
-case $Answer in
+read -p 'Do you want to install license need apps ? [y/n]' input
+case $input in
 '' | [Nn]*)
   echo "Skip"
   ;;
-*)
+[Yy]*)
   brew install --cask microsoft-office
   brew install --cask intellij-idea
   brew install --cask clip-studio-paint
