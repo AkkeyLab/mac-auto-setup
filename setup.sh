@@ -152,9 +152,15 @@ if [ ! -e "$(echo ~$USERNAME)/.asdf/shims/go" ]; then
   go version
   where go
   asdf which go
+
+  go install golang.org/x/tools/gopls@latest
+  go install github.com/go-delve/delve/cmd/dlv@latest
+  go install github.com/cweill/gotests/...@latest
+  asdf reshim golang
+
   # GOPATH -> https://github.com/kennyp/asdf-golang/blob/master/bin/exec-env
-  echo -e 'export GOPATH=$(asdf where golang)/go' >>~/.yadr/zsh/private.zsh
-  echo -e 'export PATH="$PATH:$GOPATH"' >>~/.yadr/zsh/private.zsh
+  # echo -e 'export GOPATH=$(asdf where golang)/go' >>~/.yadr/zsh/private.zsh
+  # echo -e 'export PATH="$PATH:$GOPATH"' >>~/.yadr/zsh/private.zsh
   echo " ------------ END ------------"
 fi
 
