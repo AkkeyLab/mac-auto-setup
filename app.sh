@@ -12,6 +12,8 @@ EOS
 # Install web apps.
 #
 echo " ----- Install web apps ------"
+sudo softwareupdate --install-rosetta
+
 brew install --cask 1password
 brew tap AdoptOpenJDK/openjdk
 brew install --cask adoptopenjdk
@@ -26,7 +28,7 @@ brew install --cask imageoptim
 brew install --cask visual-studio-code
 brew install --cask adobe-creative-cloud
 brew install --cask gyazo
-brew install --cask zoomus
+brew install --cask zoom
 brew install --cask discord
 brew install --cask notion
 brew install --cask figma

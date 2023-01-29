@@ -18,6 +18,9 @@ function command_exists {
 if ! command_exists brew; then
   echo " --------- Homebrew ----------"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.zprofile
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+  source ~/.zprofile
   brew -v
   echo " ------------ END ------------"
 fi
@@ -25,9 +28,10 @@ fi
 #
 # Install git
 #
-if ! command_exists git; then
+if [ ! -e "$(brew --prefix)/bin/git" ]; then
   echo " ------------ Git ------------"
   brew install git
+  brew info git
   git --version
   echo " ------------ END ------------"
 fi

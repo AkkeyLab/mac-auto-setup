@@ -112,6 +112,7 @@ cp $(
   cd $(dirname ${BASH_SOURCE:-$0})
   pwd
 )/settings/zsh/p10k.zsh ~/.yadr/zsh/p10k.zsh
+source ~/.zshrc
 echo " ------------ END ------------"
 
 #
@@ -121,6 +122,7 @@ if ! command_exists asdf; then
   echo " ----------- asdf ------------"
   brew install asdf
   echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >>~/.yadr/zsh/private.zsh
+  source ~/.zshrc
   echo " ------------ END ------------"
 fi
 
@@ -129,6 +131,12 @@ fi
 #
 if [ ! -e "$(echo ~$USERNAME)/.asdf/shims/ruby" ]; then
   echo " ----------- Ruby ------------"
+  # No longer bundle 3rd party sources
+  # https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released
+  brew install libyaml ruby-build
+  echo -e "export RUBY_CONFIGURE_OPTS=\"--with-openssl-dir=$(brew --prefix openssl@1.1)\"" >>~/.yadr/zsh/private.zsh
+  source ~/.zshrc
+
   asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
   ruby_latest=$(asdf list all ruby | grep -v '[a-z]' | tail -1 | sed 's/ //g')
   asdf install ruby $ruby_latest
@@ -219,6 +227,7 @@ case $input in
   echo "export GITHUB_ACCESS_TOKEN=${token}" >>~/.yadr/zsh/private.zsh
   echo "export HOMEBREW_GITHUB_API_TOKEN=${token}" >>~/.yadr/zsh/private.zsh
   echo "Writing to ~/.yadr/zsh/private.zsh is complete."
+  source ~/.zshrc
   echo " ------------ END ------------"
   ;;
 esac
@@ -260,5 +269,16 @@ case $input in
     cd $(dirname ${BASH_SOURCE:-$0})
     pwd
   )/app.sh
+  ;;
+esac
+
+read -p 'Would you like to create the recommended development directory ? [y/n]' input
+case $input in
+'' | [Nn]*)
+  echo "Skip"
+  ;;
+[Yy]*)
+  mkdir Development
+  echo " ------------ END ------------"
   ;;
 esac
