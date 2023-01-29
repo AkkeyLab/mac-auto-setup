@@ -131,6 +131,12 @@ fi
 #
 if [ ! -e "$(echo ~$USERNAME)/.asdf/shims/ruby" ]; then
   echo " ----------- Ruby ------------"
+  # No longer bundle 3rd party sources
+  # https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released
+  brew install libyaml ruby-build
+  echo -e "export RUBY_CONFIGURE_OPTS=\"--with-openssl-dir=$(brew --prefix openssl@1.1)\"" >>~/.yadr/zsh/private.zsh
+  source ~/.zshrc
+
   asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
   ruby_latest=$(asdf list all ruby | grep -v '[a-z]' | tail -1 | sed 's/ //g')
   asdf install ruby $ruby_latest
