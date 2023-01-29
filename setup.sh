@@ -112,6 +112,7 @@ cp $(
   cd $(dirname ${BASH_SOURCE:-$0})
   pwd
 )/settings/zsh/p10k.zsh ~/.yadr/zsh/p10k.zsh
+source ~/.zshrc
 echo " ------------ END ------------"
 
 #
@@ -121,6 +122,7 @@ if ! command_exists asdf; then
   echo " ----------- asdf ------------"
   brew install asdf
   echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >>~/.yadr/zsh/private.zsh
+  source ~/.zshrc
   echo " ------------ END ------------"
 fi
 
@@ -219,6 +221,7 @@ case $input in
   echo "export GITHUB_ACCESS_TOKEN=${token}" >>~/.yadr/zsh/private.zsh
   echo "export HOMEBREW_GITHUB_API_TOKEN=${token}" >>~/.yadr/zsh/private.zsh
   echo "Writing to ~/.yadr/zsh/private.zsh is complete."
+  source ~/.zshrc
   echo " ------------ END ------------"
   ;;
 esac
