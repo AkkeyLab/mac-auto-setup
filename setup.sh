@@ -271,3 +271,14 @@ case $input in
   )/app.sh
   ;;
 esac
+
+read -p 'Would you like to create the recommended development directory ? [y/n]' input
+case $input in
+'' | [Nn]*)
+  echo "Skip"
+  ;;
+[Yy]*)
+  mkdir Development
+  echo " ------------ END ------------"
+  ;;
+esac
