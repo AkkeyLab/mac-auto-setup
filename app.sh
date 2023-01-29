@@ -12,6 +12,8 @@ EOS
 # Install web apps.
 #
 echo " ----- Install web apps ------"
+sudo softwareupdate --install-rosetta
+
 brew install --cask 1password
 brew tap AdoptOpenJDK/openjdk
 brew install --cask adoptopenjdk
