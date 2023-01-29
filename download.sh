@@ -28,9 +28,10 @@ fi
 #
 # Install git
 #
-if ! command_exists git; then
+if [ ! -e "$(brew --prefix)/bin/git" ]; then
   echo " ------------ Git ------------"
   brew install git
+  brew info git
   git --version
   echo " ------------ END ------------"
 fi
