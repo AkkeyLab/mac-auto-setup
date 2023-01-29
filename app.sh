@@ -28,7 +28,7 @@ brew install --cask imageoptim
 brew install --cask visual-studio-code
 brew install --cask adobe-creative-cloud
 brew install --cask gyazo
-brew install --cask zoomus
+brew install --cask zoom
 brew install --cask discord
 brew install --cask notion
 brew install --cask figma
