@@ -145,6 +145,9 @@ if [ ! -e "$(echo ~$USERNAME)/.asdf/shims/ruby" ]; then
   ruby -v
   where ruby
   asdf which ruby
+
+  # https://github.com/asdf-vm/asdf-ruby#migrating-from-another-ruby-version-manager
+  echo "legacy_version_file = yes" >~/.asdfrc
   echo " ------------ END ------------"
 fi
 
