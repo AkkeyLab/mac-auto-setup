@@ -33,11 +33,11 @@ cd $script_dir_path
 brew upgrade
 
 #
-# Homebrew Cask check and upgrade
-#
-brew upgrade --casks
-
-#
 # App Store app upgrade
 #
 mas upgrade
+
+#
+# Ruby plugin update for asdf
+#
+asdf plugin-update ruby
