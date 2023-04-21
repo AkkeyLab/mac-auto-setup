@@ -1,5 +1,6 @@
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export LANG=en_US.UTF-8
+export PATH="/usr/local/bin:$PATH" # docker
 
 setopt print_eight_bit
 
