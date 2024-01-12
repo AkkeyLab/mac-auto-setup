@@ -138,6 +138,7 @@ if [ ! -e "$(echo ~$USERNAME)/.asdf/shims/ruby" ]; then
   source ~/.zshrc
 
   asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+  asdf plugin-update ruby
   ruby_latest=$(asdf list all ruby | grep -v '[a-z]' | tail -1 | sed 's/ //g')
   asdf install ruby $ruby_latest
   asdf global ruby $ruby_latest
