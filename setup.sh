@@ -97,6 +97,7 @@ path=(
 if [ -d /opt/homebrew/bin ]; then
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>~/.yadr/zsh/private.zsh
 fi
+echo "export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters" >~/.asdfrc
 source ~/.zshrc
 echo " ------------ END ------------"
 
