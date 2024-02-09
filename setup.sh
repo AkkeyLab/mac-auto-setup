@@ -283,7 +283,7 @@ case $input in
   echo "Skip"
   ;;
 [Yy]*)
-  mkdir Development
+  mkdir ~/Development
   echo " ------------ END ------------"
   ;;
 esac
