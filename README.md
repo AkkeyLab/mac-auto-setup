@@ -2,7 +2,7 @@
 Auto setup system for macOS.
 
 ## macOS version
-macOS Ventura 13.2<br>
+macOS Sonoma 14.3<br>
 Intel / Apple Silicon
 
 ## Downloads
