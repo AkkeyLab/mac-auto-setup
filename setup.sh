@@ -104,10 +104,10 @@ echo " ------------ END ------------"
 # Powerline
 #
 echo " --------- Powerline ---------"
-# Font: MesloLGS NF Regular 13pt
-# https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
-brew install romkatv/powerlevel10k/powerlevel10k
-echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.yadr/zsh/private.zsh
+curl -L -o ~/Downloads/font.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+open ~/Downloads/font.ttf
+brew install powerlevel10k
+echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >>~/.yadr/zsh/private.zsh
 cp $(
   cd $(dirname ${BASH_SOURCE:-$0})
   pwd
