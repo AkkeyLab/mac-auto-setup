@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -ex
 cat <<EOS
 
  AkkeyLab
@@ -11,6 +11,8 @@ EOS
 function command_exists {
   command -v "$1" >/dev/null
 }
+
+source ~/.zprofile
 
 #
 # Copy git ssh config file
