@@ -46,12 +46,12 @@ read -sp "Your Password: " pass
 #
 # Mac App Store apps install
 #
+echo " ---- Mac App Store apps -----"
 if ! command_exists mas; then
-  echo " ---- Mac App Store apps -----"
   brew install mas
-  mas install 497799835 # Xcode
-  echo " ------------ END ------------"
 fi
+mas install 497799835 # Xcode
+echo " ------------ END ------------"
 
 #
 # Install zsh

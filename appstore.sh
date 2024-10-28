@@ -12,7 +12,9 @@ EOS
 # Mac App Store apps install
 #
 echo " ---- Mac App Store apps -----"
-brew install mas
+if ! command_exists mas; then
+  brew install mas
+fi
 mas install 409183694  # Keynote
 mas install 425424353  # The Unarchiver
 mas install 409201541  # Pages
