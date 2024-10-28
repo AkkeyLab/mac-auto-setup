@@ -96,10 +96,8 @@ path=(
   /Library/Apple/usr/bin
 )
 " >>~/.yadr/zsh/private.zsh
-if [ -d /opt/homebrew/bin ]; then
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>~/.yadr/zsh/private.zsh
-fi
-echo "export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters" >>~/.yadr/zsh/private.zsh
+echo 'eval "$('"$(brew --prefix)"'/bin/brew shellenv)"' >>~/.yadr/zsh/private.zsh
+echo "export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$(brew --prefix)/share/zsh-syntax-highlighting/highlighters" >>~/.yadr/zsh/private.zsh
 source ~/.zshrc
 echo " ------------ END ------------"
 
