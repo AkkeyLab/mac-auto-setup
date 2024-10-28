@@ -70,7 +70,7 @@ fi
 #
 # Install vim
 #
-if ! command_exists vim; then
+if [ ! -e "$(brew --prefix)/bin/vim" ]; then
   echo " ------------ Vim ------------"
   brew install vim
   echo " ------------ END ------------"
