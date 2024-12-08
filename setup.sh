@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 cat <<EOS
 
  AkkeyLab
@@ -11,6 +11,8 @@ EOS
 function command_exists {
   command -v "$1" >/dev/null
 }
+
+source ~/.zprofile
 
 #
 # Copy git ssh config file
@@ -44,12 +46,12 @@ read -sp "Your Password: " pass
 #
 # Mac App Store apps install
 #
+echo " ---- Mac App Store apps -----"
 if ! command_exists mas; then
-  echo " ---- Mac App Store apps -----"
   brew install mas
-  mas install 497799835 # Xcode
-  echo " ------------ END ------------"
 fi
+mas install 497799835 # Xcode
+echo " ------------ END ------------"
 
 #
 # Install zsh
@@ -60,7 +62,7 @@ if [ ! -e "$(brew --prefix)/bin/zsh" ]; then
   which -a zsh
   echo $pass | sudo -S -- sh -c 'echo "$(brew --prefix)/bin/zsh" >> /etc/shells'
   # This is a workaround for problems that Xcode and others may refer to
-  echo $pass | sudo sh -c "mkdir -p /usr/local/bin & ln -s $(brew --prefix)/bin/zsh /usr/local/bin/zsh"
+  echo $pass | sudo sh -c "mkdir -p /usr/local/bin && ln -s $(brew --prefix)/bin/zsh /usr/local/bin/zsh"
   chsh -s "$(brew --prefix)/bin/zsh"
   echo " ------------ END ------------"
 fi
@@ -68,7 +70,7 @@ fi
 #
 # Install vim
 #
-if ! command_exists vim; then
+if [ ! -e "$(brew --prefix)/bin/vim" ]; then
   echo " ------------ Vim ------------"
   brew install vim
   echo " ------------ END ------------"
@@ -94,10 +96,9 @@ path=(
   /Library/Apple/usr/bin
 )
 " >>~/.yadr/zsh/private.zsh
-if [ -d /opt/homebrew/bin ]; then
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>~/.yadr/zsh/private.zsh
-fi
-echo "export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters" >>~/.yadr/zsh/private.zsh
+echo 'eval "$('"$(brew --prefix)"'/bin/brew shellenv)"' >>~/.yadr/zsh/private.zsh
+echo "export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$(brew --prefix)/share/zsh-syntax-highlighting/highlighters" >>~/.yadr/zsh/private.zsh
+compaudit | xargs sudo chmod g-w
 source ~/.zshrc
 echo " ------------ END ------------"
 
@@ -130,7 +131,7 @@ fi
 #
 # Install ruby
 #
-if [ ! -e "$(echo ~$USERNAME)/.asdf/shims/ruby" ]; then
+if [ ! -e "$HOME/.asdf/shims/ruby" ]; then
   echo " ----------- Ruby ------------"
   # No longer bundle 3rd party sources
   # https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released
@@ -156,7 +157,7 @@ fi
 #
 # Install Golang
 #
-if [ ! -e "$(echo ~$USERNAME)/.asdf/shims/go" ]; then
+if [ ! -e "$HOME/.asdf/shims/go" ]; then
   echo " ---------- Golang -----------"
   asdf plugin add golang https://github.com/kennyp/asdf-golang
   golang_latest=$(asdf list all golang | grep -v '[a-z]' | tail -1 | sed 's/ //g')

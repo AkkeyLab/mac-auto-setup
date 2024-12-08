@@ -21,7 +21,6 @@ brew install --cask android-studio
 brew install --cask docker
 brew install --cask google-chrome
 brew install --cask iterm2
-brew install --cask google-japanese-ime
 brew install --cask slack
 brew install --cask spotify
 brew install --cask imageoptim
