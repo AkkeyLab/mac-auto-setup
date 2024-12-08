@@ -15,8 +15,6 @@ echo " ----- Install web apps ------"
 sudo softwareupdate --install-rosetta
 
 brew install --cask 1password
-brew tap AdoptOpenJDK/openjdk
-brew install --cask adoptopenjdk
 brew install --cask android-studio
 brew install --cask docker
 brew install --cask google-chrome
