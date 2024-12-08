@@ -131,7 +131,7 @@ fi
 #
 # Install ruby
 #
-if [ ! -e "$(echo ~$USERNAME)/.asdf/shims/ruby" ]; then
+if [ ! -e "$HOME/.asdf/shims/ruby" ]; then
   echo " ----------- Ruby ------------"
   # No longer bundle 3rd party sources
   # https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released
@@ -157,7 +157,7 @@ fi
 #
 # Install Golang
 #
-if [ ! -e "$(echo ~$USERNAME)/.asdf/shims/go" ]; then
+if [ ! -e "$HOME/.asdf/shims/go" ]; then
   echo " ---------- Golang -----------"
   asdf plugin add golang https://github.com/kennyp/asdf-golang
   golang_latest=$(asdf list all golang | grep -v '[a-z]' | tail -1 | sed 's/ //g')
