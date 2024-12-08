@@ -2,8 +2,8 @@
 Auto setup system for macOS.
 
 ## macOS version
-macOS Sonoma 14.3<br>
-Intel / Apple Silicon
+macOS Sequoia 15.1.1<br>
+Apple Silicon
 
 ## Downloads
 To get started please run:
