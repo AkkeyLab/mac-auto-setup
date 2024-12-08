@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash -e
 cat <<EOS
 
  AkkeyLab
