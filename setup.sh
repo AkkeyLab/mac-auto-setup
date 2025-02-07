@@ -136,7 +136,7 @@ if [ ! -e "$HOME/.asdf/shims/ruby" ]; then
   # No longer bundle 3rd party sources
   # https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released
   brew install libyaml ruby-build
-  echo -e "export RUBY_CONFIGURE_OPTS=\"--with-openssl-dir=$(brew --prefix openssl@1.1)\"" >>~/.yadr/zsh/private.zsh
+  echo -e "export RUBY_CONFIGURE_OPTS=\"--with-openssl-dir=$(brew --prefix openssl)\"" >>~/.yadr/zsh/private.zsh
   source ~/.zshrc
 
   asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
