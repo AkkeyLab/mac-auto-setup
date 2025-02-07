@@ -98,8 +98,8 @@ path=(
 " >>~/.yadr/zsh/private.zsh
 echo 'eval "$('"$(brew --prefix)"'/bin/brew shellenv)"' >>~/.yadr/zsh/private.zsh
 echo "export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$(brew --prefix)/share/zsh-syntax-highlighting/highlighters" >>~/.yadr/zsh/private.zsh
-compaudit | xargs sudo chmod g-w
-source ~/.zshrc
+source ~/.zshrc # You will be asked to enter your choices here
+compaudit | xargs sudo chmod g-w # Skip that input task from now on
 echo " ------------ END ------------"
 
 #
