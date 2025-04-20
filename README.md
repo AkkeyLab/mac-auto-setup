@@ -2,7 +2,7 @@
 Auto setup system for macOS.
 
 ## macOS version
-macOS Sequoia 15.1.1<br>
+macOS Sequoia 15.4.1<br>
 Apple Silicon
 
 ## Downloads
