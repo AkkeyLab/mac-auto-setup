@@ -9,8 +9,8 @@ description: "Use when running gh CLI commands as an AI agent: avoid interactive
 ### 基本原則
 
 - `GH_PAGER=cat` を先頭に付けてページャーを無効化する
-- `gh pr` / `gh issue` などのサブコマンドでは `--json` フラグで構造化データとして受け取る（`gh api` は多くの GitHub REST API エンドポイントで JSON を返すため通常は `--json` 不要だが、`Accept` ヘッダーや diff/patch 系エンドポイントでは JSON 以外が返ることもある）
-- `--jq` で必要なフィールドだけ抽出することで出力を小さく保つ
+- `gh pr view` / `gh pr list` / `gh issue view` など `--json` をサポートするコマンドは `--json` + `--jq` で必要なフィールドだけ取得する
+- `gh api` は `--json` 不要（REST エンドポイントは JSON を返す）；`--paginate` で全件取得し `--jq` で絞り込む
 - インタラクティブプロンプトが出ないよう、必要な引数はすべて明示的に指定する
 
 ### PRコメントの取得
