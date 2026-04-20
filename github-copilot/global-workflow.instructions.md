@@ -35,3 +35,5 @@ When the user asks you to implement something and create a pull request:
 ---
 
 When the user asks for code review, follow `review.instructions.md`.
+
+When running `gh` CLI commands, follow `gh-cli.instructions.md`.
