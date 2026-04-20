@@ -19,15 +19,15 @@ description: "Use when running gh CLI commands as an AI agent: avoid interactive
 # タイムラインコメント（PR全体へのコメント）
 GH_PAGER=cat gh pr view <PR番号> --json comments --jq '.comments[] | {author: .author.login, body: .body}'
 
-# レビューコメント（インラインの行コメント）
-GH_PAGER=cat gh api repos/{owner}/{repo}/pulls/<PR番号>/comments
+# レビューコメント（インラインの行コメント）- --paginate で全件取得
+GH_PAGER=cat gh api repos/{owner}/{repo}/pulls/<PR番号>/comments --paginate
 
-# レビュー一覧（Approve / Request Changes など）
-GH_PAGER=cat gh api repos/{owner}/{repo}/pulls/<PR番号>/reviews
+# レビュー一覧（Approve / Request Changes など）- --paginate で全件取得
+GH_PAGER=cat gh api repos/{owner}/{repo}/pulls/<PR番号>/reviews --paginate
 ```
 
-`{owner}/{repo}` は以下で取得できる:
+`{owner}/{repo}` は以下で取得できる（`-q` は `--jq` のエイリアス）:
 
 ```bash
-gh repo view --json nameWithOwner -q .nameWithOwner
+GH_PAGER=cat gh repo view --json nameWithOwner --jq .nameWithOwner
 ```
